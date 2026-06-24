@@ -14,7 +14,7 @@ import { Slider } from './ui/slider';
 import { RadioGroup, RadioGroupItem } from './ui/radio-group';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { API_BASE_URL, API_ROUTES } from '../lib/api-config';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import {
   Search,
   Building2,

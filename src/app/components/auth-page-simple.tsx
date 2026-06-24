@@ -4,7 +4,7 @@
 // ═══════════════════════════════════════════════════════════════════════
 
 import React, { useState } from 'react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { simpleAuthService } from '../lib/simple-auth-service';
 import { LogIn, UserPlus, ArrowLeft, Mail, Lock, User, Loader2 } from 'lucide-react';
 

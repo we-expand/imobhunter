@@ -14,7 +14,7 @@
  * ✅ CORS RESOLVIDO! Todas as chamadas passam pelo servidor Supabase
  */
 
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { projectId, publicAnonKey } from '../utils/supabase/info';
 
 // ✅ URL CORRIGIDA! Agora usa /server ao invés de /make-server-9e4b8b7c

@@ -8,7 +8,7 @@ import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { Loader2, CheckCircle, XCircle, AlertTriangle } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { API_BASE_URL, API_ROUTES } from '../lib/api-config';
 import { publicAnonKey } from '../utils/supabase/info';
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { ShieldCheck, Loader2, AlertTriangle } from 'lucide-react';
 
 // ⚠️ ATENÇÃO: Esta chave dá acesso total. Remova este arquivo antes de ir para produção.

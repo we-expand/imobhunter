@@ -8,7 +8,7 @@ import { Separator } from './ui/separator';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { accessProtection, AccessToken } from '../lib/access-protection';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import {
   Shield,
   Plus,

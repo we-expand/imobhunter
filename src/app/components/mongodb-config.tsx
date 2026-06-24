@@ -8,7 +8,7 @@ import { Alert, AlertDescription } from './ui/alert';
 import { mongodb } from '../lib/mongodb-service';
 import { storage } from '../lib/storage-service';
 import { Database, CheckCircle, XCircle, AlertCircle, ExternalLink, Copy, ArrowRight } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 export function MongoDBConfig() {
   const [config, setConfig] = useState({

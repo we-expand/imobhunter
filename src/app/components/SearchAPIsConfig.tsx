@@ -19,7 +19,7 @@ import {
   Shield,
   Sparkles
 } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { motion, AnimatePresence } from 'motion/react';
 import { searchAPI, APICredentials } from '../lib/api/searchAPI';
 

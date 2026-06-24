@@ -6,7 +6,7 @@ import { Label } from './ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { accessProtection } from '../lib/access-protection';
 import { emailService } from '../lib/email-service';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { Link2, Copy, CheckCircle2, AlertCircle } from 'lucide-react';
 
 interface QuickAccessTokenModalProps {

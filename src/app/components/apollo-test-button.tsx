@@ -6,7 +6,7 @@
 import React, { useState } from 'react';
 import { Button } from './ui/button';
 import { Loader2, CheckCircle2, XCircle, Beaker } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { searchApolloContacts } from '../utils/apollo-client';
 
 export function ApolloTestButton() {

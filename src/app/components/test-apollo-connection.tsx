@@ -6,7 +6,7 @@ import {
   CheckCircle, XCircle, Loader2, Play, RefreshCw,
   AlertCircle, ExternalLink, Key, Zap
 } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { projectId, publicAnonKey } from '../utils/supabase/info';
 import { API_BASE_URL, API_ROUTES } from '../lib/api-config';
 

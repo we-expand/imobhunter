@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { MessageCircle, CheckCircle, XCircle, RefreshCw, Smartphone, AlertCircle } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import QRCode from 'qrcode';
 
 interface WhatsAppRealQRProps {

@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 import { useAuthStore } from '../hooks/useAuthStore';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { EtherealLogo } from './ui/EtherealLogo';
 
 export function SmartAuth({ onBack }: { onBack?: () => void }) {

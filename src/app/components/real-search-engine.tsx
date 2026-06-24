@@ -4,7 +4,7 @@
 // ═══════════════════════════════════════════════════════════════════════
 
 import React, { useState } from 'react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { 
   Search, Target, Loader2, CheckCircle2, XCircle, 
   TrendingUp, Users, Mail, Phone, Linkedin, MapPin,

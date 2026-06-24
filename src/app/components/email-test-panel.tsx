@@ -5,7 +5,7 @@ import { Input } from './ui/input';
 import { Badge } from './ui/badge';
 import { emailService } from '../lib/email-service';
 import { Mail, Send, CheckCircle, AlertCircle, ExternalLink, Code } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 export function EmailTestPanel() {
   const [testEmail, setTestEmail] = useState('');

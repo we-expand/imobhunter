@@ -15,7 +15,7 @@ import {
   MousePointer, Move, ChevronDown, AlertCircle, CheckCircle2,
   Info, PlayCircle, StopCircle, RefreshCw, MapPin
 } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { useLanguage } from '../lib/i18n/LanguageContext';
 import { useTheme } from '../lib/ThemeContext';
 import { CRMIntegrationTab, MonitoringTab } from './ai-command-center-crm-monitor';

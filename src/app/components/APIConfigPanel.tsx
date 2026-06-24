@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { realAPIService } from '../lib/real-api-service';
 import { Key, CheckCircle2, XCircle, ExternalLink, Shield, Zap, AlertTriangle } from 'lucide-react';
 import { APIDiagnosticPanel } from './APIDiagnosticPanel';

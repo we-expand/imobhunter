@@ -1,7 +1,7 @@
 import { Button } from './ui/button';
 import { Download, FileSpreadsheet, FileText } from 'lucide-react';
 import { Lead } from '../types';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import {
   DropdownMenu,
   DropdownMenuContent,

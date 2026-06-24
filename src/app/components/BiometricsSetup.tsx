@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Fingerprint, X, ShieldCheck, Smartphone, CheckCircle } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 export function BiometricsSetup() {
   const [isOpen, setIsOpen] = useState(false);

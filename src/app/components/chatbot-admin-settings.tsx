@@ -7,7 +7,7 @@ import { Switch } from './ui/switch';
 import { Textarea } from './ui/textarea';
 import { useTheme } from '../lib/ThemeContext';
 import { Bot, Save, RefreshCw, MessageCircle, Mail, Phone } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 export function ChatbotAdminSettings() {
   const { theme } = useTheme();

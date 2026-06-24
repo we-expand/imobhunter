@@ -11,7 +11,7 @@ import {
   Shield, CheckCircle, XCircle, Smartphone, Lock, Bell, Eye, Trash2, 
   AlertTriangle, Sparkles, Key, Clock, Mail, Zap, Activity, Database
 } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { motion } from 'motion/react';
 
 export function SecuritySettings() {

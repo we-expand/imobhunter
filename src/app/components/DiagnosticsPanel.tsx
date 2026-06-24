@@ -12,7 +12,7 @@ import {
   Server
 } from 'lucide-react';
 import { localAuthService } from '../lib/local-auth-service';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface DiagnosticsPanelProps {
   onForceLogin: (user: any) => void;

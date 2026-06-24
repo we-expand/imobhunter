@@ -11,7 +11,7 @@ import { ResetPasswordModal } from './reset-password-modal';
 import { TermsOfUseModal } from './terms-of-use-modal';
 import { authService } from '../lib/auth-service';
 import { emailService } from '../lib/email-service';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { 
   Shield, 
   Mail, 

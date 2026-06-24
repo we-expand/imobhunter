@@ -6,7 +6,7 @@ import { Alert, AlertDescription } from './ui/alert';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { MessageCircle, CheckCircle, XCircle, Send, Loader2, Settings, ExternalLink } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface WhatsAppOficialConnectionProps {
   onMessageSent?: (messageId: string) => void;

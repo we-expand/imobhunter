@@ -27,7 +27,7 @@ import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { realAPIService } from '../lib/real-api-service';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { SocialMediaSearch } from './SocialMediaSearch';
 import { DemoDataBanner } from './DemoDataBanner';
 

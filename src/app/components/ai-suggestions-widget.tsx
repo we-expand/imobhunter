@@ -17,7 +17,7 @@ import {
   MapPin,
   Mail
 } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { aiLearning } from '../lib/ai-learning';
 import { storage } from '../lib/storage-service';
 import { Lead } from '../types';

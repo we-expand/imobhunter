@@ -14,7 +14,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Badge } from './ui/badge';
 import { ScrollArea } from './ui/scroll-area';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { useTheme } from '../lib/ThemeContext';
 import { projectId, publicAnonKey } from '../utils/supabase/info';
 import { API_BASE_URL, API_ROUTES } from '../lib/api-config';

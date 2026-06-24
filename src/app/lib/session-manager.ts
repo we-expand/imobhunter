@@ -1,5 +1,5 @@
 // Gerenciador de sessão com detecção de inatividade
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 const INACTIVITY_TIMEOUT = 3600000; // 60 minutos (1 hora) - tempo MUITO maior!
 const SESSION_KEY = 'user-session-token';

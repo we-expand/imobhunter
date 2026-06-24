@@ -8,7 +8,7 @@ import { Badge } from './ui/badge';
 import { GeminiNeuralBackground } from './gemini-neural-background';
 import { authService } from '../lib/auth-service';
 import { QrCode, Smartphone, CheckCircle, Shield, Camera, Copy, Check } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import QRCode from 'qrcode';
 
 interface QRValidationModalProps {

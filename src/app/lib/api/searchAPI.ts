@@ -9,7 +9,7 @@
  * NUNCA retorna dados falsos. Se a API falhar, retorna array vazio.
  */
 
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 // ===============================
 // TIPOS E INTERFACES

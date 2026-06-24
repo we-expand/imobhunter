@@ -14,7 +14,7 @@ import {
   CheckCircle, XCircle, Settings, Key, RefreshCw,
   ExternalLink, AlertCircle, Zap, Shield, Link2
 } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { motion } from 'motion/react';
 
 interface Integration {

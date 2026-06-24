@@ -1,4 +1,4 @@
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { projectId, publicAnonKey } from '../utils/supabase/info';
 
 const LINKEDIN_API_URL = `https://${projectId}.supabase.co/functions/v1/make-server-9e4b8b7c/linkedin`;

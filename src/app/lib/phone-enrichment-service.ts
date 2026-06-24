@@ -1,5 +1,5 @@
 // Serviço de Enriquecimento de Telefones com IA Multi-Source
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 // ============ CONFIGURAÇÃO DAS APIs ============
 // Configure suas API Keys aqui

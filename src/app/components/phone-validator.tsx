@@ -20,7 +20,7 @@ import {
   Globe
 } from 'lucide-react';
 import { phoneEnrichment, EnrichmentResult, PhoneSuggestion } from '../lib/phone-enrichment-service';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface PhoneValidatorProps {
   leadName: string;

@@ -10,7 +10,7 @@ import {
   Brain, Activity, Pause, Play, Linkedin, Mail, MessageSquare,
   Phone, Clock, Calendar, Eye, TrendingUp, AlertCircle
 } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface CRMTabProps {
   selectedCrm: string | null;

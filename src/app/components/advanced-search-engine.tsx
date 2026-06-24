@@ -33,7 +33,7 @@ import {
   Target,
   Zap
 } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { projectId, publicAnonKey } from '../utils/supabase/info';
 
 // Interface completa com TODOS os filtros do LinkedIn Sales Navigator

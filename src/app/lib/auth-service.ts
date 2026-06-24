@@ -1,5 +1,5 @@
 // Serviço de autenticação com 2FA e QR Code
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { emailService } from './email-service';
 
 interface User {

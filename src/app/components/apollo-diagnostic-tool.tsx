@@ -8,7 +8,7 @@ import {
   CheckCircle, XCircle, Loader2, AlertTriangle, 
   Copy, ExternalLink, RefreshCw, Terminal, Eye, EyeOff
 } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { projectId, publicAnonKey } from '../utils/supabase/info';
 import { API_BASE_URL, API_ROUTES } from '../lib/api-config';
 

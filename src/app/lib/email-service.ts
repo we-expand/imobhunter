@@ -1,4 +1,4 @@
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { resendEmailService } from './resend-email-service';
 import { Lead } from '../types';
 import { projectId, publicAnonKey } from '../utils/supabase/info';

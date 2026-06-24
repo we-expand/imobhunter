@@ -11,7 +11,7 @@ import {
   Activity, Eye, Clock, FileCheck, BarChart3, Zap, Settings,
   ChevronDown, ChevronUp, RefreshCw, Bell, Search, Filter
 } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { storage } from '../lib/storage-service';
 
 interface AuditLog {

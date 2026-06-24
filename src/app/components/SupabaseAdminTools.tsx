@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { Shield, UserPlus, Users, Key, RefreshCw, Check, X } from 'lucide-react';
 
 // ⚠️ CHAVE MESTRA (Service Role)

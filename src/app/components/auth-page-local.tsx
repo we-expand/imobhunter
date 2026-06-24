@@ -3,7 +3,7 @@
 // ═══════════════════════════════════════════════════════════════════════
 
 import React, { useState, useEffect, useRef } from 'react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { localAuthService } from '../lib/local-auth-service';
 import { 
   LogIn, UserPlus, ArrowLeft, Mail, Lock, User, Loader2, Sparkles,

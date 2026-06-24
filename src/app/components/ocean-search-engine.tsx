@@ -42,7 +42,7 @@ import {
   Linkedin,
   Settings
 } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { projectId, publicAnonKey } from '../utils/supabase/info';
 import { SearchTestPanel } from './search-test-panel';
 import { ApiSetupWizard } from './api-setup-wizard';

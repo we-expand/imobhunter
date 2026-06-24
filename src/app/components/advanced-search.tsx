@@ -1,5 +1,5 @@
 import { linkedInAPI } from '../lib/linkedin-api';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { projectId, publicAnonKey, serverUrl } from '../utils/supabase/info';
 
 import { API_BASE_URL, API_ROUTES } from '../lib/api-config';

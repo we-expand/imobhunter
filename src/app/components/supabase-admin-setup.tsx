@@ -12,7 +12,7 @@ import {
   Play,
   RefreshCw
 } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { supabaseAdminService } from '../lib/supabase-admin-service';
 
 interface SupabaseAdminSetupProps {

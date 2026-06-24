@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Toaster } from 'sonner@2.0.3';
+import { Toaster } from 'sonner';
 import { AgencyLandingPage } from './components/agency/AgencyLandingPage';
 import { AgencyLogin } from './components/agency/AgencyLogin';
 import { AgencyDashboard } from './components/agency/AgencyDashboard';

@@ -6,7 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { storage } from '../lib/storage-service';
 import { mockLeads, mockActivities, mockClusters } from '../lib/mock-data';
 import { Download, Upload, Trash2, Database, RefreshCw, Plus } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { aiSimulation } from '../lib/ai-simulation';
 import { MongoDBConfig } from './mongodb-config';
 import { resetPlatformData } from '../lib/trial-manager';

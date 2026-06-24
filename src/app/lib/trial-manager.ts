@@ -1,5 +1,5 @@
 // Gerenciador de período de testes (Trial de 10 dias)
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 const TRIAL_DURATION = 10 * 24 * 60 * 60 * 1000; // 10 dias em milissegundos
 const TRIAL_START_KEY = 'trial-start-date';

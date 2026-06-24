@@ -7,7 +7,7 @@ import { Badge } from './ui/badge';
 import { Checkbox } from './ui/checkbox';
 import { ScrollArea } from './ui/scroll-area';
 import { Building2, MapPin, Users, TrendingUp, Search, Globe, DollarSign, BarChart3, ExternalLink, Plus, Star } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface CompanyResult {
   id: string;

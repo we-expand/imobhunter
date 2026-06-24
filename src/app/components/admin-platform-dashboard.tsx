@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from './ui/
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { Badge } from './ui/badge';
 import { RefreshCw, Activity, ListChecks, Users, DollarSign, TrendingUp, Search } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 // Usar serverUrl direto para rotas de admin que não estão sob /imobhunter-api
 const API_URL = serverUrl;

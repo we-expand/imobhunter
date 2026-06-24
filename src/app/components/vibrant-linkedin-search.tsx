@@ -23,7 +23,7 @@ import {
   ChevronDown, ChevronUp, X, Download, Plus, Save, Mail, Phone,
   UserCheck, Zap, Globe, Target, TrendingUp, AlertCircle, Award, Rocket
 } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { motion, AnimatePresence } from 'motion/react';
 import { projectId, publicAnonKey } from '../utils/supabase/info';
 import { formatFullName } from '../lib/string-utils';

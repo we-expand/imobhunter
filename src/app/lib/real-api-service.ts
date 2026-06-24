@@ -9,7 +9,7 @@
  * ✅ CORS RESOLVIDO! Todas as chamadas passam pelo servidor Supabase
  */
 
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { projectId, publicAnonKey } from '../utils/supabase/info';
 
 // URL base do servidor Supabase

@@ -20,7 +20,7 @@ import {
   Archive
 } from 'lucide-react';
 import { storage } from '../lib/storage-service';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 export function DataManagerV2() {
   const [storageMode, setStorageMode] = useState<'mongodb' | 'localstorage'>('localstorage');

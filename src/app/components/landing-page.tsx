@@ -26,7 +26,7 @@ import {
 } from 'lucide-react';
 import { EtherealLogo } from './ui/EtherealLogo';
 import { DemoVideoModal } from './demo-video-modal';
-import { Toaster, toast } from 'sonner@2.0.3';
+import { Toaster, toast } from 'sonner';
 
 interface LandingPageProps {
   onGetStarted: () => void;
