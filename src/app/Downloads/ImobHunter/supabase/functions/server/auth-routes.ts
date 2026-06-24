@@ -1,5 +1,5 @@
 import { Hono } from 'npm:hono';
-import { createClient } from 'npm:';
+import { createClient } from 'npm:@supabase/supabase-js';
 
 const app = new Hono();
 

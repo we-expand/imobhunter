@@ -20,7 +20,7 @@ import { logger } from "npm:hono/logger";
 console.log('[BOOT] 4/13 - Importando KV Store...');
 import * as kv from "./kv_store.tsx";
 console.log('[BOOT] 5/13 - Importando Supabase Client...');
-import { createClient } from "npm:";
+import { createClient } from "npm:@supabase/supabase-js";
 console.log('[BOOT] 6/13 - Importando Search Routes (Advanced)...');
 import searchRouter from "./search-routes.tsx";
 console.log('[BOOT] 7/13 - Importando LinkedIn Routes...');
