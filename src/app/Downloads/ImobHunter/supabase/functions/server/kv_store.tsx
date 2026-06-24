@@ -5,7 +5,7 @@
 // NÃO MODIFIQUE este arquivo - ele é gerenciado pelo sistema.
 // ═══════════════════════════════════════════════════════════════════════
 
-import { createClient } from "npm:@supabase/supabase-js";
+import { createClient } from '&';
 
 // Criar cliente Supabase
 const supabase = createClient(

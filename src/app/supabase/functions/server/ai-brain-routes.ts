@@ -1,4 +1,4 @@
-import { Hono } from 'npm:hono@4';
+import { Hono } from '&';
 import * as kv from './kv_store.tsx';
 
 const app = new Hono();

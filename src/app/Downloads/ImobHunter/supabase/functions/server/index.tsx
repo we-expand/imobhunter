@@ -8,7 +8,7 @@ import { Hono } from "npm:hono";
 import { cors } from "npm:hono/cors";
 import { logger } from "npm:hono/logger";
 import * as kv from "./kv_store.tsx";
-import { createClient } from "npm:@supabase/supabase-js";
+import { createClient } from '&';
 import searchRouter from "./search-routes.ts";
 import authRouter from "./auth-routes.ts";
 import linkedinRoutes from "./linkedin-routes.ts";

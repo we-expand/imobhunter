@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { projectId, publicAnonKey } from '../utils/supabase/info';
-import QRCode from 'qrcode@1.5.4';
+import QRCode from '&';
 
 const LINKEDIN_AUTH_API = `https://${projectId}.supabase.co/functions/v1/make-server-v2/linkedin-auth`;
 

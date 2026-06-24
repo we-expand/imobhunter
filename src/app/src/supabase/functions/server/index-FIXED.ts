@@ -4,7 +4,7 @@
  * Versão: 9.0-REAL-API-INTEGRATION
  */
 
-import { createClient } from 'npm:@supabase/supabase-js@2';
+import { createClient } from '&';
 
 // ==================== ENV CONFIG ====================
 const APOLLO_API_KEY = Deno.env.get('APOLLO_API_KEY') || '';

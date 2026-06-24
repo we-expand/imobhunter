@@ -3,7 +3,7 @@
 // ═══════════════════════════════════════════════════════════════════════
 
 import { Hono } from "npm:hono";
-import { createClient } from "npm:@supabase/supabase-js";
+import { createClient } from '&';
 import { getEnv } from "./env-helper.ts";
 
 const authRouter = new Hono();
