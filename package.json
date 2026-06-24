@@ -67,9 +67,7 @@
     "qrcode": "^1.5.4",
     "hono": "^4.12.23",
     "zustand": "^5.0.13",
-    "@jsr/supabase__functions-js": "^3.0.0-next.29",
-    "hono@4": "npm:hono@4",
-    "@supabase/supabase-js@2": "npm:@supabase/supabase-js@2"
+    "@jsr/supabase__functions-js": "^3.0.0-next.29"
   },
   "devDependencies": {
     "@tailwindcss/vite": "4.1.12",
