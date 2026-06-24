@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from '';
 import { toast } from 'sonner';
 import { ShieldCheck, Loader2, AlertTriangle } from 'lucide-react';
 

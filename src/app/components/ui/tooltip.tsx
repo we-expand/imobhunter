@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import * as TooltipPrimitive from '&';
+import * as TooltipPrimitive from "";
 
 import { cn } from "./utils";
 

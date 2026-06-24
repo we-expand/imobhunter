@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
-import * as SheetPrimitive from '&';
-import { XIcon } from '&';
+import * as SheetPrimitive from "";
+import { XIcon } from "lucide-react";
 
 import { cn } from "./utils";
 

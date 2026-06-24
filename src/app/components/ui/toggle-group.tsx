@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
-import * as ToggleGroupPrimitive from '&';
-import { type VariantProps } from '&';
+import * as ToggleGroupPrimitive from "";
+import { type VariantProps } from "class-variance-authority";
 
 import { cn } from "./utils";
 import { toggleVariants } from "./toggle";

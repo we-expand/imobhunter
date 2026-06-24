@@ -3,7 +3,7 @@
 // ═══════════════════════════════════════════════════════════════════════
 
 import { Hono } from "npm:hono";
-import { createClient } from '&';
+import { createClient } from "npm:";
 import { getEnv } from "./env-helper.ts";
 
 const authRouter = new Hono();

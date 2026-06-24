@@ -4,7 +4,7 @@
  * Versão: 9.0-REAL-API-INTEGRATION
  */
 
-import { createClient } from '&';
+import { createClient } from 'npm:';
 
 // ==================== ENV CONFIG ====================
 const APOLLO_API_KEY = Deno.env.get('APOLLO_API_KEY') || '';

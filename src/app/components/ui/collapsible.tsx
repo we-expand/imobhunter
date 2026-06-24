@@ -1,6 +1,6 @@
 "use client";
 
-import * as CollapsiblePrimitive from '&';
+import * as CollapsiblePrimitive from "";
 
 function Collapsible({
   ...props

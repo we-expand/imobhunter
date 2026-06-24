@@ -13,7 +13,7 @@ console.log('🚀 ImobHunter Server - Bundle Consolidado - Iniciando...');
 import { Hono } from "npm:hono";
 import { cors } from "npm:hono/cors";
 import { logger } from "npm:hono/logger";
-import { createClient } from '&';
+import { createClient } from "jsr:";
 
 // ==========================================
 // 🔑 ENV HELPER (inline)

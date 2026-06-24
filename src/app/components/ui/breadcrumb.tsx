@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Slot } from '&';
-import { ChevronRight, MoreHorizontal } from '&';
+import { Slot } from "";
+import { ChevronRight, MoreHorizontal } from "lucide-react";
 
 import { cn } from "./utils";
 

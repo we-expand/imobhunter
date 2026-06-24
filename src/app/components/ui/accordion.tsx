@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
-import * as AccordionPrimitive from '&';
-import { ChevronDownIcon } from '&';
+import * as AccordionPrimitive from "";
+import { ChevronDownIcon } from "lucide-react";
 
 import { cn } from "./utils";
 

@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
-import * as DropdownMenuPrimitive from '&';
-import { CheckIcon, ChevronRightIcon, CircleIcon } from '&';
+import * as DropdownMenuPrimitive from "";
+import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react";
 
 import { cn } from "./utils";
 

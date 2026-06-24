@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import * as ScrollAreaPrimitive from '&';
+import * as ScrollAreaPrimitive from "";
 
 import { cn } from "./utils";
 

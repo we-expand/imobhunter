@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
-import * as LabelPrimitive from '&';
-import { Slot } from '&';
+import * as LabelPrimitive from "";
+import { Slot } from "";
 import {
   Controller,
   FormProvider,
@@ -11,7 +11,7 @@ import {
   type ControllerProps,
   type FieldPath,
   type FieldValues,
-} from '&';
+} from "react-hook-form";
 
 import { cn } from "./utils";
 import { Label } from "./label";

@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import * as SwitchPrimitive from '&';
+import * as SwitchPrimitive from "";
 
 import { cn } from "./utils";
 

@@ -3,7 +3,7 @@
  * Versão simplificada para máxima compatibilidade
  */
 import * as React from "react";
-import { cva, type VariantProps } from '&';
+import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 

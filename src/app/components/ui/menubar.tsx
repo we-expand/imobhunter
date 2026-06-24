@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
-import * as MenubarPrimitive from '&';
-import { CheckIcon, ChevronRightIcon, CircleIcon } from '&';
+import * as MenubarPrimitive from "";
+import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react";
 
 import { cn } from "./utils";
 

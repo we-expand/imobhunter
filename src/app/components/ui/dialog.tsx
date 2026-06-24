@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
-import * as DialogPrimitive from '&';
-import { XIcon } from '&';
+import * as DialogPrimitive from "";
+import { XIcon } from "lucide-react";
 
 import { cn } from "./utils";
 

@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
-import * as CheckboxPrimitive from '&';
-import { CheckIcon } from '&';
+import * as CheckboxPrimitive from "";
+import { CheckIcon } from "lucide-react";
 
 import { cn } from "./utils";
 

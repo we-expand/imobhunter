@@ -5,7 +5,7 @@ import { APIConfiguration } from "./advanced-search/APIConfiguration";
 import { searchAPI, SearchResult } from "../lib/api/searchAPI";
 import { Search, Settings, Save, FolderOpen, ArrowLeft, TrendingUp, Users, Building2, Zap } from "lucide-react";
 import { Search, Settings, Save, FolderOpen, ArrowLeft, Users, Building2, Zap, AlertCircle } from "lucide-react";
-import { toast } from '&';
+import { toast } from "sonner";
 
 interface LinkedInNavigatorSearchProps {
   onBack?: () => void;

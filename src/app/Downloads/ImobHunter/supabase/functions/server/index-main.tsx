@@ -8,7 +8,7 @@ import { Hono } from "npm:hono";
 import { cors } from "npm:hono/cors";
 import { logger } from "npm:hono/logger";
 import * as kv from "./kv_store.tsx";
-import { createClient } from '&';
+import { createClient } from "npm:";
 import searchRouter from "./search-routes.ts";
 import { generateDemoLeads } from "./demo-leads-generator.ts";
 import { leadsDB } from "./leads-database.ts";

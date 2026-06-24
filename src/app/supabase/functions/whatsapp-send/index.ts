@@ -1,8 +1,8 @@
 // Supabase Edge Function: whatsapp-send
 // Deploy: supabase functions deploy whatsapp-send
 
-import { serve } from '&';
-import { createClient } from '&';
+import { serve } from 'https://deno.land/std';
+import { createClient } from 'https://esm.sh/';
 
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!;
 const SUPABASE_SERVICE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;

@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Slot } from '&';
-import { cva, type VariantProps } from '&';
+import { Slot } from "";
+import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "./utils";
 
