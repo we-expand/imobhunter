@@ -1,0 +1,80 @@
+═══════════════════════════════════════════════════════════════════════
+🎯 PROBLEMA: FUNÇÃO NÃO DEPLOYADA (ERRO DE CORS)
+═══════════════════════════════════════════════════════════════════════
+
+O erro "blocked by CORS policy" significa que a Edge Function NÃO FOI
+DEPLOYADA no Supabase ou não está respondendo.
+
+═══════════════════════════════════════════════════════════════════════
+⚡ SOLUÇÃO (COPIE E COLE NO TERMINAL):
+═══════════════════════════════════════════════════════════════════════
+
+cd ~/Downloads/ImobHunter && chmod +x DEPLOY-AGORA-COM-VERIFICACAO.sh && ./DEPLOY-AGORA-COM-VERIFICACAO.sh
+
+═══════════════════════════════════════════════════════════════════════
+📋 O QUE VAI ACONTECER:
+═══════════════════════════════════════════════════════════════════════
+
+1. Verifica se Supabase CLI está instalado
+2. Verifica se você está autenticado
+3. Linka ao projeto evdyqlrssgsktctjruuq
+4. FAZ O DEPLOY da função server
+5. Aguarda 60 segundos
+6. Testa 4 rotas automaticamente
+7. Mostra "SUCESSO TOTAL!" se tudo funcionar
+
+═══════════════════════════════════════════════════════════════════════
+✅ QUANDO VER "SUCESSO TOTAL!" NO NAVEGADOR:
+═══════════════════════════════════════════════════════════════════════
+
+1. Abra: https://bring-aroma-99987345.figma.site
+
+2. Pressione F12 (Console)
+
+3. Execute: localStorage.clear()
+
+4. Execute: location.reload()
+
+5. Faça login novamente
+
+═══════════════════════════════════════════════════════════════════════
+❌ SE DER ERRO "supabase: command not found":
+═══════════════════════════════════════════════════════════════════════
+
+brew install supabase/tap/supabase
+supabase login
+./DEPLOY-AGORA-COM-VERIFICACAO.sh
+
+═══════════════════════════════════════════════════════════════════════
+❌ SE DER ERRO "not authenticated":
+═══════════════════════════════════════════════════════════════════════
+
+supabase login
+./DEPLOY-AGORA-COM-VERIFICACAO.sh
+
+═══════════════════════════════════════════════════════════════════════
+❌ SE DER ERRO "project not found":
+═══════════════════════════════════════════════════════════════════════
+
+Você precisa ter acesso ao projeto evdyqlrssgsktctjruuq
+
+Verifique:
+  supabase projects list
+
+═══════════════════════════════════════════════════════════════════════
+🔍 VER LOGS SE DER ERRO:
+═══════════════════════════════════════════════════════════════════════
+
+supabase functions logs server --limit 50
+
+═══════════════════════════════════════════════════════════════════════
+⚡ AÇÃO IMEDIATA:
+═══════════════════════════════════════════════════════════════════════
+
+cd ~/Downloads/ImobHunter
+chmod +x DEPLOY-AGORA-COM-VERIFICACAO.sh
+./DEPLOY-AGORA-COM-VERIFICACAO.sh
+
+AGUARDE ATÉ VER "SUCESSO TOTAL!" E ENTÃO LIMPE O CACHE!
+
+═══════════════════════════════════════════════════════════════════════

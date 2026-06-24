@@ -1,0 +1,14 @@
+{
+  "tasks": {
+    "start": "deno run --allow-net --allow-env --allow-read index.ts"
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "lib": ["deno.window", "dom", "dom.iterable"]
+  },
+  "imports": {
+    "hono": "npm:hono@latest",
+    "hono/": "npm:hono@latest/"
+  }
+}

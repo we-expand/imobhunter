@@ -1,0 +1,241 @@
+═══════════════════════════════════════════════════════════════════════
+🚀 COMANDOS PRONTOS PARA COPIAR E COLAR - NOVO PROJETO
+═══════════════════════════════════════════════════════════════════════
+
+📋 PROJECT ID: evdyqlrssgsktctjruuq
+🌐 URL: https://evdyqlrssgsktctjruuq.supabase.co
+
+═══════════════════════════════════════════════════════════════════════
+📌 PASSO 1: DEPLOY VIA CLI
+═══════════════════════════════════════════════════════════════════════
+
+--- COPIE E COLE NO TERMINAL (Um comando por vez): ---
+
+npm install -g supabase
+
+supabase login
+
+supabase link --project-ref evdyqlrssgsktctjruuq
+
+supabase functions deploy server --project-ref evdyqlrssgsktctjruuq
+
+--- Aguarde 60 segundos após o deploy ---
+
+═══════════════════════════════════════════════════════════════════════
+📌 PASSO 2: TESTAR SE FUNCIONOU
+═══════════════════════════════════════════════════════════════════════
+
+--- COPIE E COLE NO TERMINAL: ---
+
+curl https://evdyqlrssgsktctjruuq.supabase.co/functions/v1/make-server-9e4b8b7c/ping
+
+--- Resposta esperada: "version": "1.2.0" ---
+
+═══════════════════════════════════════════════════════════════════════
+📌 PASSO 3: CONFIGURAR SECRETS NO SUPABASE
+═══════════════════════════════════════════════════════════════════════
+
+🌐 Acesse: https://supabase.com/dashboard/project/evdyqlrssgsktctjruuq/settings/functions
+
+⚠️ ATENÇÃO: USE ESPAÇOS NOS NOMES (NÃO UNDERSCORES!)
+
+Clique em "Add new secret" e adicione CADA UMA:
+
+────────────────────────────────────────────────────────────────────
+SECRET #1:
+
+Name (nome):
+SUPABASE URL
+
+Value (valor):
+https://evdyqlrssgsktctjruuq.supabase.co
+
+────────────────────────────────────────────────────────────────────
+SECRET #2:
+
+Name (nome):
+SUPABASE ANON KEY
+
+Value (valor):
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV2ZHlxbHJzc2dza3RjdGpydXVxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU5Nzk1NzAsImV4cCI6MjA4MTU1NTU3MH0.7Z71n-3HpwqI-T5vrc6XnG-Es_nlWLxDEX2AvqGXzDw
+
+────────────────────────────────────────────────────────────────────
+SECRET #3:
+
+Name (nome):
+SUPABASE SERVICE ROLE KEY
+
+Value (valor):
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV2ZHlxbHJzc2dza3RjdGpydXVxIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2NTk3OTU3MCwiZXhwIjoyMDgxNTU1NTcwfQ.NRxdwErN6MlaaMINbnnSui4XNm14xBRNfW5WS5SCH10
+
+────────────────────────────────────────────────────────────────────
+SECRET #4:
+
+Name (nome):
+SUPABASE DB URL
+
+Value (valor):
+[PEGAR EM: https://supabase.com/dashboard/project/evdyqlrssgsktctjruuq/settings/database]
+[Copie o "Connection String" com mode: Session]
+
+────────────────────────────────────────────────────────────────────
+SECRETS DAS INTEGRAÇÕES (copie os valores que você já tem):
+────────────────────────────────────────────────────────────────────
+
+SECRET #5:
+Name: APOLLO API KEY
+Value: [COPIE DO PROJETO ANTIGO OU COLOQUE SUA KEY]
+
+SECRET #6:
+Name: LINKEDIN API KEY
+Value: [COPIE DO PROJETO ANTIGO OU COLOQUE SUA KEY]
+
+SECRET #7:
+Name: HUNTER API KEY
+Value: [COPIE DO PROJETO ANTIGO OU COLOQUE SUA KEY]
+
+SECRET #8:
+Name: PIPL API KEY
+Value: [COPIE DO PROJETO ANTIGO OU COLOQUE SUA KEY]
+
+SECRET #9:
+Name: CLEARBIT API KEY
+Value: [COPIE DO PROJETO ANTIGO OU COLOQUE SUA KEY]
+
+SECRET #10:
+Name: PDL API KEY
+Value: [COPIE DO PROJETO ANTIGO OU COLOQUE SUA KEY]
+
+SECRET #11:
+Name: FULLCONTACT API KEY
+Value: [COPIE DO PROJETO ANTIGO OU COLOQUE SUA KEY]
+
+SECRET #12:
+Name: ROCKETREACH API KEY
+Value: [COPIE DO PROJETO ANTIGO OU COLOQUE SUA KEY]
+
+SECRET #13:
+Name: PROXYCURL API KEY
+Value: [COPIE DO PROJETO ANTIGO OU COLOQUE SUA KEY]
+
+SECRET #14:
+Name: LINKEDIN CLIENT ID
+Value: [COPIE DO PROJETO ANTIGO OU COLOQUE SUA KEY]
+
+SECRET #15:
+Name: LINKEDIN CLIENT SECRET
+Value: [COPIE DO PROJETO ANTIGO OU COLOQUE SUA KEY]
+
+SECRET #16:
+Name: LUSHA API KEY
+Value: [COPIE DO PROJETO ANTIGO OU COLOQUE SUA KEY]
+
+SECRET #17:
+Name: RAPIDAPI KEY
+Value: [COPIE DO PROJETO ANTIGO OU COLOQUE SUA KEY]
+
+SECRET #18:
+Name: RESEND API KEY
+Value: [COPIE DO PROJETO ANTIGO OU COLOQUE SUA KEY]
+
+═══════════════════════════════════════════════════════════════════════
+📌 PASSO 4: VERIFICAR SECRETS CONFIGURADAS
+═══════════════════════════════════════════════════════════════════════
+
+--- COPIE E COLE NO TERMINAL: ---
+
+curl https://evdyqlrssgsktctjruuq.supabase.co/functions/v1/make-server-9e4b8b7c/debug/env-vars
+
+--- Deve mostrar todas as secrets configuradas ---
+
+═══════════════════════════════════════════════════════════════════════
+📌 COMANDOS ÚTEIS DEPOIS
+═══════════════════════════════════════════════════════════════════════
+
+Ver logs em tempo real:
+supabase functions logs server --project-ref evdyqlrssgsktctjruuq
+
+Fazer redeploy:
+supabase functions deploy server --project-ref evdyqlrssgsktctjruuq
+
+Listar funções:
+supabase functions list --project-ref evdyqlrssgsktctjruuq
+
+Testar endpoint /ping:
+curl https://evdyqlrssgsktctjruuq.supabase.co/functions/v1/make-server-9e4b8b7c/ping
+
+Testar Apollo diretamente:
+curl -X POST https://evdyqlrssgsktctjruuq.supabase.co/functions/v1/make-server-9e4b8b7c/api/apollo/search \
+  -H "Content-Type: application/json" \
+  -d '{"keywords":"real estate broker","location":"Portugal"}'
+
+═══════════════════════════════════════════════════════════════════════
+🔗 LINKS IMPORTANTES
+═══════════════════════════════════════════════════════════════════════
+
+Dashboard:
+https://supabase.com/dashboard/project/evdyqlrssgsktctjruuq
+
+Functions:
+https://supabase.com/dashboard/project/evdyqlrssgsktctjruuq/functions
+
+Secrets (Environment Variables):
+https://supabase.com/dashboard/project/evdyqlrssgsktctjruuq/settings/functions
+
+API Keys:
+https://supabase.com/dashboard/project/evdyqlrssgsktctjruuq/settings/api
+
+Database Connection String:
+https://supabase.com/dashboard/project/evdyqlrssgsktctjruuq/settings/database
+
+Logs em tempo real:
+https://supabase.com/dashboard/project/evdyqlrssgsktctjruuq/functions/server/logs
+
+═══════════════════════════════════════════════════════════════════════
+✅ CHECKLIST FINAL
+═══════════════════════════════════════════════════════════════════════
+
+[ ] Instalou Supabase CLI
+[ ] Fez login no Supabase
+[ ] Linkou ao projeto evdyqlrssgsktctjruuq
+[ ] Fez deploy da função server
+[ ] Aguardou 60 segundos
+[ ] Testou endpoint /ping (versão 1.2.0)
+[ ] Configurou SUPABASE URL
+[ ] Configurou SUPABASE ANON KEY
+[ ] Configurou SUPABASE SERVICE ROLE KEY
+[ ] Configurou SUPABASE DB URL
+[ ] Configurou APOLLO API KEY
+[ ] Configurou demais secrets (14 restantes)
+[ ] Testou endpoint /debug/env-vars
+[ ] Abriu ImobHunter no navegador
+[ ] Fez login
+[ ] Clicou em "VERIFICAR VERSÃO" (deve mostrar 1.2.0)
+[ ] Clicou em "TESTAR API" (deve retornar sucesso)
+[ ] Sistema 100% operacional! 🎉
+
+═══════════════════════════════════════════════════════════════════════
+📊 TEMPO ESTIMADO
+═══════════════════════════════════════════════════════════════════════
+
+Deploy via CLI:           5 min
+Configurar secrets:      10 min
+Testar tudo:              2 min
+─────────────────────────────
+TOTAL:                   17 min
+
+═══════════════════════════════════════════════════════════════════════
+🎯 COMECE AGORA!
+═══════════════════════════════════════════════════════════════════════
+
+1. Abra o terminal
+2. Copie e cole os comandos do PASSO 1
+3. Configure as secrets no PASSO 3
+4. Teste tudo no PASSO 4
+5. Pronto! ✅
+
+═══════════════════════════════════════════════════════════════════════
+Última atualização: 2025-12-17
+Novo projeto: evdyqlrssgsktctjruuq
+Versão alvo: 1.2.0
+═══════════════════════════════════════════════════════════════════════

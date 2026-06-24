@@ -1,0 +1,25 @@
+{
+  "name": "imobhunter",
+  "version": "1.2.0",
+  "description": "Sistema Autónomo de Lead Generation & Nurturing para o mercado imobiliário",
+  "author": "ImobHunter Team",
+  "license": "Proprietary",
+  "scripts": {
+    "deploy": "supabase functions deploy server",
+    "link": "supabase link --project-ref evdyqlrssgsktctjruuq",
+    "logs": "supabase functions logs server --follow",
+    "test": "curl https://evdyqlrssgsktctjruuq.supabase.co/functions/v1/make-server/ping"
+  },
+  "repository": {
+    "type": "git",
+    "url": "private"
+  },
+  "keywords": [
+    "lead-generation",
+    "real-estate",
+    "automation",
+    "ai",
+    "saas",
+    "portugal"
+  ]
+}

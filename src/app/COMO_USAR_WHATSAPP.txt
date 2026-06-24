@@ -1,0 +1,96 @@
+═══════════════════════════════════════════════════
+  WHATSAPP BUSINESS API - INSTRUÇÕES SIMPLES
+═══════════════════════════════════════════════════
+
+PASSO 1: INICIAR BACKEND
+─────────────────────────
+
+Abra o Terminal/CMD e digite:
+
+  cd backend-whatsapp
+  npm run start:simple
+
+Você verá:
+
+  ╔═══════════════════════════════════════╗
+  ║  🚀 WhatsApp Business API            ║
+  ║  ✅ Status: ONLINE                   ║
+  ╚═══════════════════════════════════════╝
+
+✅ Backend rodando!
+
+
+PASSO 2: USAR A INTERFACE
+─────────────────────────
+
+1. Abra navegador
+2. Acesse: http://localhost:5173
+3. Vá em: Configurações → Integrações
+4. Encontre: WhatsApp Business
+5. Clique: "Conectar WhatsApp" (botão verde)
+
+
+PASSO 3: ESCANEAR QR CODE
+─────────────────────────
+
+1. QR Code REAL aparece na tela
+2. Abra WhatsApp no celular
+3. Menu ⋮ → Aparelhos conectados
+4. Conectar um aparelho
+5. Aponte câmera para o QR Code
+6. WhatsApp conecta automaticamente
+
+
+PASSO 4: TESTAR
+─────────────────────────
+
+1. Status muda para "✅ Conectado"
+2. Clique: "Enviar Mensagem: João Nunes"
+3. Verifique seu WhatsApp
+4. Você receberá mensagem de teste
+
+
+PRONTO! ✅
+─────────────────────────
+
+Agora você pode:
+• Enviar mensagens automáticas
+• Criar campanhas de prospecção
+• Nutrir leads via WhatsApp
+• Integrar com IA
+
+
+ERRO? "Erro ao conectar"
+─────────────────────────
+
+Solução:
+1. Verifique se backend está rodando
+2. No terminal deve mostrar "Status: ONLINE"
+3. Se não estiver, execute: npm run start:simple
+
+
+PRIMEIRA VEZ?
+─────────────────────────
+
+Execute antes:
+  cd backend-whatsapp
+  npm install
+
+(Demora 2-3 minutos, só precisa fazer uma vez)
+
+
+═══════════════════════════════════════════════════
+  RESUMO: 2 comandos + 1 clique
+═══════════════════════════════════════════════════
+
+Terminal:
+  cd backend-whatsapp
+  npm run start:simple
+
+Navegador:
+  Configurações → Integrações → Conectar WhatsApp
+
+
+É SÓ ISSO! 🚀
+
+═══════════════════════════════════════════════════

@@ -1,0 +1,176 @@
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║         🚨 WHATSAPP - SIGA ESTES 4 PASSOS                   ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+
+
+O QUE VOCÊ ESTÁ VENDO:
+
+  ┌──────────────────────────────────────┐
+  │ Backend: ❌ OFFLINE                  │
+  │ Servidor NÃO está rodando            │
+  └──────────────────────────────────────┘
+
+ISSO SIGNIFICA:
+
+  O servidor Node.js NÃO foi iniciado no seu Mac.
+  É OBRIGATÓRIO iniciar para o WhatsApp funcionar.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SOLUÇÃO: 4 PASSOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+┌────────────────────────────────────────────────────────────┐
+│                                                            │
+│  PASSO 1: Abra o Terminal                                 │
+│  ────────────────────────                                │
+│                                                            │
+│  Mac: Cmd + Espaço                                         │
+│       Digite: Terminal                                     │
+│       Aperte: Enter                                        │
+│                                                            │
+└────────────────────────────────────────────────────────────┘
+
+
+┌────────────────────────────────────────────────────────────┐
+│                                                            │
+│  PASSO 2: Navegue até a pasta do projeto                  │
+│  ─────────────────────────────────────                   │
+│                                                            │
+│  Digite no Terminal:                                       │
+│                                                            │
+│    cd backend-whatsapp                                     │
+│                                                            │
+│  Aperte Enter                                              │
+│                                                            │
+└────────────────────────────────────────────────────────────┘
+
+
+┌────────────────────────────────────────────────────────────┐
+│                                                            │
+│  PASSO 3: Instale as dependências (PRIMEIRA VEZ)          │
+│  ──────────────────────────────────────────              │
+│                                                            │
+│  Digite no Terminal:                                       │
+│                                                            │
+│    npm install                                             │
+│                                                            │
+│  Aperte Enter                                              │
+│                                                            │
+│  ⏱️  AGUARDE 2-3 MINUTOS                                   │
+│                                                            │
+│  Vai baixar ~200MB de arquivos                             │
+│                                                            │
+└────────────────────────────────────────────────────────────┘
+
+
+┌────────────────────────────────────────────────────────────┐
+│                                                            │
+│  PASSO 4: Inicie o servidor                                │
+│  ───────────────────────                                 │
+│                                                            │
+│  Digite no Terminal:                                       │
+│                                                            │
+│    npm run start:simple                                    │
+│                                                            │
+│  Aperte Enter                                              │
+│                                                            │
+│  ✅ AGUARDE VER:                                           │
+│                                                            │
+│  ╔═══════════════════════════════════════════════╗        │
+│  ║   🚀 WhatsApp Business API                   ║        │
+│  ║   ✅ Status: ONLINE                          ║        │
+│  ║   🌐 Port: 3001                              ║        │
+│  ╚═══════════════════════════════════════════════╝        │
+│                                                            │
+└────────────────────────────────────────────────────────────┘
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  DEPOIS QUE VER "STATUS: ONLINE"
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+5. DEIXE O TERMINAL ABERTO (não feche!)
+
+6. Volte ao CHROME
+
+7. A tela agora mostra:
+   
+   ┌──────────────────────────────────────┐
+   │ Backend: ✅ ONLINE                   │
+   │ Servidor rodando em localhost:3001   │
+   └──────────────────────────────────────┘
+
+8. Clique no botão: "Conectar WhatsApp"
+
+9. QR Code vai aparecer ✅
+
+10. Escaneie com WhatsApp no celular
+
+11. PRONTO! ✅
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  RESUMO DOS 4 COMANDOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Terminal → Digite:
+
+  cd backend-whatsapp
+  
+  npm install
+  
+  npm run start:simple
+
+Aguarde: "Status: ONLINE"
+
+Volte ao Chrome → Conecte WhatsApp → FUNCIONA! ✅
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PROBLEMAS?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❌ "npm: command not found"
+   
+   → Node.js não instalado
+   → Baixe: https://nodejs.org/
+   → Instale versão LTS
+   → Depois tente novamente
+
+
+❌ "Port 3001 already in use"
+   
+   → Execute no Terminal:
+     lsof -ti:3001 | xargs kill -9
+   → Depois: npm run start:simple
+
+
+❌ "Cannot find module"
+   
+   → Execute: npm install
+   → Depois: npm run start:simple
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  IMPORTANTE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️  O TERMINAL DEVE FICAR ABERTO
+
+Se fechar o Terminal = Backend para = WhatsApp desconecta
+
+Pode minimizar o Terminal, mas NÃO FECHE.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 É SÓ SEGUIR OS 4 PASSOS QUE VAI FUNCIONAR!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+AI LeadGen Pro | KW Portugal

@@ -1,0 +1,88 @@
+═══════════════════════════════════════════════════════════════════════
+🚀 IMOBHUNTER - COMECE AGORA EM 3 PASSOS
+═══════════════════════════════════════════════════════════════════════
+
+✅ MIGRAÇÃO CONCLUÍDA! Novo projeto: evdyqlrssgsktctjruuq
+
+═══════════════════════════════════════════════════════════════════════
+📌 PASSO 1: DEPLOY (5 MINUTOS)
+═══════════════════════════════════════════════════════════════════════
+
+Abra o terminal e cole estes 5 comandos (um de cada vez):
+
+npm install -g supabase
+
+supabase login
+
+supabase link --project-ref evdyqlrssgsktctjruuq
+
+cd /caminho/para/este/projeto
+
+supabase functions deploy server
+
+[Aguarde 60 segundos]
+
+═══════════════════════════════════════════════════════════════════════
+📌 PASSO 2: CONFIGURAR SECRETS (10 MINUTOS)
+═══════════════════════════════════════════════════════════════════════
+
+Acesse: https://supabase.com/dashboard/project/evdyqlrssgsktctjruuq/settings/functions
+
+Clique em "Add new secret" e adicione (⚠️ USE ESPAÇOS):
+
+1. Nome: SUPABASE URL
+   Valor: https://evdyqlrssgsktctjruuq.supabase.co
+
+2. Nome: SUPABASE ANON KEY
+   Valor: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV2ZHlxbHJzc2dza3RjdGpydXVxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU5Nzk1NzAsImV4cCI6MjA4MTU1NTU3MH0.7Z71n-3HpwqI-T5vrc6XnG-Es_nlWLxDEX2AvqGXzDw
+
+3. Nome: SUPABASE SERVICE ROLE KEY
+   Valor: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV2ZHlxbHJzc2dza3RjdGpydXVxIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2NTk3OTU3MCwiZXhwIjoyMDgxNTU1NTcwfQ.NRxdwErN6MlaaMINbnnSui4XNm14xBRNfW5WS5SCH10
+
+4. Nome: SUPABASE DB URL
+   Valor: [PEGAR EM Settings → Database → Connection String]
+
+5-18. Configure as outras 14 secrets (APOLLO API KEY, etc.)
+      Veja valores em: COMANDOS_COPIAR_COLAR.txt
+
+═══════════════════════════════════════════════════════════════════════
+📌 PASSO 3: TESTAR (2 MINUTOS)
+═══════════════════════════════════════════════════════════════════════
+
+No terminal:
+
+curl https://evdyqlrssgsktctjruuq.supabase.co/functions/v1/make-server-9e4b8b7c/ping
+
+Deve retornar: "version": "1.2.0"
+
+Na interface:
+1. Abra ImobHunter
+2. Faça login
+3. Clique em "VERIFICAR VERSÃO DO SERVIDOR"
+4. Deve ficar VERDE com "1.2.0"
+
+═══════════════════════════════════════════════════════════════════════
+✅ PRONTO! SISTEMA FUNCIONANDO!
+═══════════════════════════════════════════════════════════════════════
+
+Total: ~17 minutos
+
+═══════════════════════════════════════════════════════════════════════
+📚 PRECISA DE MAIS DETALHES?
+═══════════════════════════════════════════════════════════════════════
+
+Leia:
+- README.md (visão geral)
+- INICIO_AQUI.md (guia completo)
+- COMANDOS_COPIAR_COLAR.txt (todos os comandos)
+- INDEX_GUIAS.md (todos os 17 guias)
+
+═══════════════════════════════════════════════════════════════════════
+🆘 PROBLEMAS?
+═══════════════════════════════════════════════════════════════════════
+
+Leia: TROUBLESHOOTING-SERVIDOR.md
+
+═══════════════════════════════════════════════════════════════════════
+🚀 COMECE AGORA! Copie o primeiro comando e cole no terminal!
+═══════════════════════════════════════════════════════════════════════

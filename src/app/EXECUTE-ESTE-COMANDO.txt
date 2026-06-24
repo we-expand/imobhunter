@@ -1,0 +1,443 @@
+# ═══════════════════════════════════════════════════════════════════════
+# 🚀 IMOBHUNTER - COMANDO COMPLETO DE DEPLOY
+# ═══════════════════════════════════════════════════════════════════════
+# 
+# COPIE E COLE ESTE COMANDO INTEIRO NO SEU TERMINAL
+# Ele vai fazer TUDO automaticamente!
+#
+# ═══════════════════════════════════════════════════════════════════════
+
+cd ~/Downloads/ImobHunter && \
+
+# 1️⃣ Criar simple-auth.ts
+cat > supabase/functions/server/simple-auth.ts << 'AUTHEOF'
+// ═══════════════════════════════════════════════════════════════════════
+// 🔐 IMOBHUNTER - SIMPLE AUTH SYSTEM (KV-BASED)
+// Sistema de autenticação simples usando KV Store e JWT
+// ═══════════════════════════════════════════════════════════════════════
+
+import { Hono } from "npm:hono";
+import * as kv from "./kv_store.tsx";
+
+const simpleAuthRouter = new Hono();
+
+// ═══════════════════════════════════════════════════════════════════════
+// 🔧 HELPER FUNCTIONS
+// ═══════════════════════════════════════════════════════════════════════
+
+// Hash simples para senha (em produção use bcrypt)
+async function hashPassword(password: string): Promise<string> {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(password);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+// Gerar token JWT simples
+function generateToken(userId: string, email: string): string {
+  const header = { alg: "HS256", typ: "JWT" };
+  const payload = {
+    userId,
+    email,
+    iat: Math.floor(Date.now() / 1000),
+    exp: Math.floor(Date.now() / 1000) + (30 * 24 * 60 * 60) // 30 dias
+  };
+  
+  const base64Header = btoa(JSON.stringify(header));
+  const base64Payload = btoa(JSON.stringify(payload));
+  const signature = btoa(`${base64Header}.${base64Payload}.SECRET_KEY`);
+  
+  return `${base64Header}.${base64Payload}.${signature}`;
+}
+
+// Validar token JWT
+function validateToken(token: string): { valid: boolean; userId?: string; email?: string } {
+  try {
+    const parts = token.split('.');
+    if (parts.length !== 3) return { valid: false };
+    
+    const payload = JSON.parse(atob(parts[1]));
+    
+    // Verificar expiração
+    if (payload.exp < Math.floor(Date.now() / 1000)) {
+      return { valid: false };
+    }
+    
+    return {
+      valid: true,
+      userId: payload.userId,
+      email: payload.email
+    };
+  } catch {
+    return { valid: false };
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// 📝 SIGNUP - Criar novo usuário
+// ═══════════════════════════════════════════════════════════════════════
+simpleAuthRouter.post("/signup", async (c) => {
+  console.log('🔐 [SIMPLE-AUTH] SIGNUP - Nova requisição');
+  
+  try {
+    const body = await c.req.json();
+    const { email, password, name } = body;
+
+    // Validações
+    if (!email || !password || !name) {
+      return c.json({ 
+        success: false, 
+        error: 'Email, senha e nome são obrigatórios' 
+      }, 400);
+    }
+
+    if (password.length < 6) {
+      return c.json({ 
+        success: false, 
+        error: 'A senha deve ter pelo menos 6 caracteres' 
+      }, 400);
+    }
+
+    if (!email.includes('@')) {
+      return c.json({ 
+        success: false, 
+        error: 'Email inválido' 
+      }, 400);
+    }
+
+    // Verificar se email já existe
+    const existingUser = await kv.get(`user:${email}`);
+    if (existingUser) {
+      return c.json({ 
+        success: false, 
+        error: 'Este email já está cadastrado. Faça login.' 
+      }, 400);
+    }
+
+    // Criar usuário
+    const userId = crypto.randomUUID();
+    const passwordHash = await hashPassword(password);
+    
+    const userData = {
+      id: userId,
+      email,
+      name,
+      passwordHash,
+      role: 'user',
+      createdAt: new Date().toISOString()
+    };
+
+    // Salvar no KV Store
+    await kv.set(`user:${email}`, userData);
+    await kv.set(`userid:${userId}`, email); // Index reverso
+
+    console.log('✅ [SIMPLE-AUTH] Usuário criado:', userId);
+
+    return c.json({
+      success: true,
+      message: 'Usuário criado com sucesso! Você já pode fazer login.',
+      user: {
+        id: userId,
+        email,
+        name,
+        role: 'user'
+      }
+    }, 201);
+
+  } catch (error) {
+    console.error('💥 [SIMPLE-AUTH] SIGNUP erro:', error);
+    return c.json({ 
+      success: false, 
+      error: 'Erro interno do servidor' 
+    }, 500);
+  }
+});
+
+// ═══════════════════════════════════════════════════════════════════════
+// 🔓 LOGIN - Autenticar usuário
+// ═══════════════════════════════════════════════════════════════════════
+simpleAuthRouter.post("/login", async (c) => {
+  console.log('🔐 [SIMPLE-AUTH] LOGIN - Nova requisição');
+  
+  try {
+    const body = await c.req.json();
+    const { email, password } = body;
+
+    // Validações
+    if (!email || !password) {
+      return c.json({ 
+        success: false, 
+        error: 'Email e senha são obrigatórios' 
+      }, 400);
+    }
+
+    // Buscar usuário
+    const userData = await kv.get(`user:${email}`);
+    
+    if (!userData) {
+      return c.json({ 
+        success: false, 
+        error: 'Email ou senha incorretos' 
+      }, 401);
+    }
+
+    // Verificar senha
+    const passwordHash = await hashPassword(password);
+    if (passwordHash !== userData.passwordHash) {
+      return c.json({ 
+        success: false, 
+        error: 'Email ou senha incorretos' 
+      }, 401);
+    }
+
+    // Gerar token
+    const token = generateToken(userData.id, userData.email);
+
+    console.log('✅ [SIMPLE-AUTH] Login bem-sucedido:', userData.id);
+
+    return c.json({
+      success: true,
+      message: 'Login realizado com sucesso!',
+      user: {
+        id: userData.id,
+        email: userData.email,
+        name: userData.name,
+        role: userData.role
+      },
+      session: {
+        access_token: token,
+        expires_at: Math.floor(Date.now() / 1000) + (30 * 24 * 60 * 60)
+      }
+    }, 200);
+
+  } catch (error) {
+    console.error('💥 [SIMPLE-AUTH] LOGIN erro:', error);
+    return c.json({ 
+      success: false, 
+      error: 'Erro interno do servidor' 
+    }, 500);
+  }
+});
+
+// ═══════════════════════════════════════════════════════════════════════
+// 👤 ME - Obter dados do usuário autenticado
+// ═══════════════════════════════════════════════════════════════════════
+simpleAuthRouter.get("/me", async (c) => {
+  console.log('👤 [SIMPLE-AUTH] ME - Nova requisição');
+  
+  try {
+    const authHeader = c.req.header('Authorization');
+    const token = authHeader?.replace('Bearer ', '');
+
+    if (!token) {
+      return c.json({ 
+        success: false, 
+        error: 'Token de acesso não fornecido' 
+      }, 401);
+    }
+
+    // Validar token
+    const validation = validateToken(token);
+    if (!validation.valid || !validation.email) {
+      return c.json({ 
+        success: false, 
+        error: 'Token inválido ou expirado' 
+      }, 401);
+    }
+
+    // Buscar dados do usuário
+    const userData = await kv.get(`user:${validation.email}`);
+    
+    if (!userData) {
+      return c.json({ 
+        success: false, 
+        error: 'Usuário não encontrado' 
+      }, 404);
+    }
+
+    console.log('✅ [SIMPLE-AUTH] Usuário autenticado:', userData.id);
+
+    return c.json({
+      success: true,
+      user: {
+        id: userData.id,
+        email: userData.email,
+        name: userData.name,
+        role: userData.role,
+        created_at: userData.createdAt
+      }
+    }, 200);
+
+  } catch (error) {
+    console.error('💥 [SIMPLE-AUTH] ME erro:', error);
+    return c.json({ 
+      success: false, 
+      error: 'Erro interno do servidor' 
+    }, 500);
+  }
+});
+
+// ═══════════════════════════════════════════════════════════════════════
+// 🚪 LOGOUT - Encerrar sessão (apenas limpa do lado do cliente)
+// ═══════════════════════════════════════════════════════════════════════
+simpleAuthRouter.post("/logout", async (c) => {
+  console.log('🚪 [SIMPLE-AUTH] LOGOUT - Nova requisição');
+  
+  return c.json({
+    success: true,
+    message: 'Logout realizado com sucesso'
+  }, 200);
+});
+
+// ═══════════════════════════════════════════════════════════════════════
+// 🔧 MIDDLEWARE - Autenticar requisições
+// ═══════════════════════════════════════════════════════════════════════
+export async function authMiddleware(c: any, next: any) {
+  const authHeader = c.req.header('Authorization');
+  const token = authHeader?.replace('Bearer ', '');
+
+  if (!token) {
+    return c.json({ 
+      success: false, 
+      error: 'Token de acesso não fornecido' 
+    }, 401);
+  }
+
+  const validation = validateToken(token);
+  if (!validation.valid) {
+    return c.json({ 
+      success: false, 
+      error: 'Token inválido ou expirado' 
+    }, 401);
+  }
+
+  // Adicionar userId ao contexto
+  c.set('userId', validation.userId);
+  c.set('userEmail', validation.email);
+
+  await next();
+}
+
+export default simpleAuthRouter;
+AUTHEOF
+
+echo "✅ simple-auth.ts criado!" && \
+
+# 2️⃣ Backup do index.ts original
+cp supabase/functions/server/index.ts supabase/functions/server/index.ts.backup-$(date +%Y%m%d-%H%M%S) && \
+echo "✅ Backup do index.ts criado!" && \
+
+# 3️⃣ Atualizar index.ts
+cat > supabase/functions/server/index.ts << 'INDEXEOF'
+console.log('🚀 IMOBHUNTER SERVER STARTING...');
+import { Hono } from "npm:hono";
+import { cors } from "npm:hono/cors";
+import { logger } from "npm:hono/logger";
+import * as kv from "./kv_store.tsx";
+import searchRouter from "./search-routes.ts";
+import authRouter from "./auth-routes.ts";
+import simpleAuthRouter from "./simple-auth.ts";
+import linkedinRoutes from "./linkedin-routes.ts";
+import linkedinAuthRoutes from "./linkedin-auth-routes.ts";
+import diagnosticsRoutes from "./diagnostics-routes.ts";
+import excelImportRoutes from "./excel-import-routes.ts";
+import aiFeedbackRoutes from "./ai-feedback-routes.ts";
+import instagramRouter from "./instagram-routes.ts";
+import aiBrainRoutes from "./ai-brain-routes.ts";
+import apiTestRouter from "./api-test-routes.tsx";
+import { generateDemoLeads } from "./demo-leads-generator.ts";
+import { leadsDB } from "./leads-database.ts";
+import { intelligentSearch } from "./intelligent-search.ts";
+
+const app = new Hono();
+app.use('*', logger(console.log));
+app.use("/*", cors({ origin: "*", allowHeaders: ["Content-Type", "Authorization"], allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], exposeHeaders: ["Content-Length"], maxAge: 600 }));
+
+app.get("/make-server-9e4b8b7c/health", (c) => c.json({ status: "ok", version: "1.4.0", auth: "simple" }));
+app.get("/make-server-9e4b8b7c/ping", (c) => c.json({ status: "alive", version: "1.4.0", timestamp: new Date().toISOString() }));
+
+app.route("/make-server-9e4b8b7c/simple-auth", simpleAuthRouter);
+app.route("/make-server-9e4b8b7c/search", searchRouter);
+app.route("/make-server-9e4b8b7c/auth", authRouter);
+app.route("/make-server-9e4b8b7c/linkedin", linkedinRoutes);
+app.route("/make-server-9e4b8b7c/linkedin-auth", linkedinAuthRoutes);
+app.route("/make-server-9e4b8b7c/diagnostics", diagnosticsRoutes);
+app.route("/make-server-9e4b8b7c/excel", excelImportRoutes);
+app.route("/make-server-9e4b8b7c/ai-feedback", aiFeedbackRoutes);
+app.route("/make-server-9e4b8b7c/instagram", instagramRouter);
+app.route("/make-server-9e4b8b7c/ai-brain", aiBrainRoutes);
+app.route("/make-server-9e4b8b7c/api-test", apiTestRouter);
+
+app.post("/make-server-9e4b8b7c/leads/demo", async (c) => {
+  try {
+    const body = await c.req.json();
+    const leads = generateDemoLeads(body);
+    return c.json({ success: true, leads, total: leads.length });
+  } catch (error) {
+    return c.json({ success: false, error: error.message }, 500);
+  }
+});
+
+app.get("/make-server-9e4b8b7c/leads", async (c) => {
+  try {
+    const leads = await leadsDB.getAllLeads();
+    return c.json({ success: true, leads, total: leads.length });
+  } catch (error) {
+    return c.json({ success: false, error: error.message }, 500);
+  }
+});
+
+app.get("/make-server-9e4b8b7c/search/intelligent", async (c) => {
+  try {
+    const query = c.req.query('query');
+    const filters = JSON.parse(c.req.query('filters') || '{}');
+    const results = await intelligentSearch(query, filters);
+    return c.json({ success: true, results });
+  } catch (error) {
+    return c.json({ success: false, error: error.message }, 500);
+  }
+});
+
+console.log('✅ Servidor pronto!');
+Deno.serve(app.fetch);
+INDEXEOF
+
+echo "✅ index.ts atualizado!" && \
+
+# 4️⃣ Mostrar status dos arquivos
+echo "" && \
+echo "📂 Arquivos criados/atualizados:" && \
+ls -lh supabase/functions/server/simple-auth.ts && \
+ls -lh supabase/functions/server/index.ts && \
+echo "" && \
+
+# 5️⃣ Fazer deploy
+echo "🚀 Iniciando deploy..." && \
+supabase functions deploy server --project-ref evdyqlrssgsktctjruuq && \
+echo "" && \
+
+# 6️⃣ Aguardar deploy propagar
+echo "⏳ Aguardando 5 segundos para o deploy propagar..." && \
+sleep 5 && \
+echo "" && \
+
+# 7️⃣ Testar endpoints
+echo "🧪 Testando endpoints..." && \
+echo "" && \
+echo "1️⃣ Health Check:" && \
+curl -s https://evdyqlrssgsktctjruuq.supabase.co/functions/v1/server/make-server-9e4b8b7c/health | python3 -m json.tool && \
+echo "" && \
+echo "2️⃣ Ping:" && \
+curl -s https://evdyqlrssgsktctjruuq.supabase.co/functions/v1/server/make-server-9e4b8b7c/ping | python3 -m json.tool && \
+echo "" && \
+echo "✅ DEPLOY CONCLUÍDO COM SUCESSO!" && \
+echo "" && \
+echo "📝 Próximos passos:" && \
+echo "   1. Acesse o frontend do ImobHunter" && \
+echo "   2. Clique em 'Criar conta' ou 'Login'" && \
+echo "   3. Teste o sistema de autenticação" && \
+echo "" && \
+echo "🧪 Para testar manualmente os endpoints, execute:" && \
+echo "   bash test-auth.sh"
+

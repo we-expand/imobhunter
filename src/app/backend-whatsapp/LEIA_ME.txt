@@ -1,0 +1,83 @@
+╔═══════════════════════════════════════════════╗
+║                                               ║
+║  🚀 COMO INICIAR O WHATSAPP BACKEND          ║
+║                                               ║
+╚═══════════════════════════════════════════════╝
+
+
+MÉTODO 1: SCRIPT AUTOMÁTICO (MAIS FÁCIL)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Abra o Terminal (Cmd + Space → Terminal)
+
+2. Arraste o arquivo "start.sh" para o Terminal
+
+3. Aperte Enter
+
+PRONTO! ✅
+
+
+MÉTODO 2: COMANDOS MANUAIS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Abra o Terminal
+
+2. Digite:
+   cd backend-whatsapp
+
+3. Instale (primeira vez):
+   npm install
+
+4. Inicie:
+   npm run start:simple
+
+
+VOCÊ VERÁ:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+╔═══════════════════════════════════════════╗
+║  🚀 WhatsApp Business API                ║
+║  ✅ Status: ONLINE                       ║
+║  🌐 Port: 3001                           ║
+╚═══════════════════════════════════════════╝
+
+💡 Aguardando conexões...
+
+
+AGORA NO NAVEGADOR:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Acesse: http://localhost:5173
+2. Vá em: Configurações → Integrações
+3. Clique: "Conectar WhatsApp"
+4. Escaneie o QR Code
+5. PRONTO! ✅
+
+
+IMPORTANTE:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️  DEIXE O TERMINAL ABERTO!
+    Se fechar, o WhatsApp para de funcionar.
+
+⚠️  Para parar: Ctrl + C no Terminal
+
+⚠️  Para reiniciar: npm run start:simple
+
+
+PROBLEMAS?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❌ "npm: command not found"
+   → Instale Node.js: https://nodejs.org/
+
+❌ "Port 3001 in use"
+   → Execute: lsof -ti:3001 | xargs kill -9
+
+❌ QR Code não aparece
+   → Aguarde 10-15 segundos
+
+
+═══════════════════════════════════════════════
+
+Criado para: AI LeadGen Pro | KW Portugal

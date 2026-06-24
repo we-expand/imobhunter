@@ -1,0 +1,258 @@
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║         🚨 WHATSAPP NÃO FUNCIONA? LEIA ISTO!                ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  POR QUE NÃO FUNCIONA?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+O WhatsApp Business API precisa de um SERVIDOR rodando no seu Mac.
+
+Este servidor NÃO inicia automaticamente.
+
+VOCÊ PRECISA iniciar manualmente (apenas 3 comandos).
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  MÉTODO FÁCIL (DUPLO-CLIQUE)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Encontre o arquivo: INICIAR_WHATSAPP_MAC.command
+
+2. DÊ DUPLO-CLIQUE nele
+
+3. Uma janela do Terminal vai abrir
+
+4. Aguarde ver "Status: ONLINE"
+
+5. DEIXE ESSA JANELA ABERTA
+
+6. Volte ao navegador
+
+7. Clique "Conectar WhatsApp"
+
+PRONTO! ✅
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  MÉTODO MANUAL (SE O DUPLO-CLIQUE NÃO FUNCIONAR)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+PASSO 1: Abrir o Terminal
+──────────────────────────
+
+Mac:
+  1. Pressione: Cmd + Espaço
+  2. Digite: Terminal
+  3. Aperte: Enter
+
+Você verá uma janela preta ou branca com texto.
+
+
+PASSO 2: Navegar até a pasta do projeto
+────────────────────────────────────────
+
+OPÇÃO A (Fácil):
+  1. Digite no Terminal: cd 
+  2. (deixe um espaço depois de "cd")
+  3. Arraste a pasta "backend-whatsapp" para o Terminal
+  4. Aperte Enter
+
+OPÇÃO B (Digitando):
+  1. Digite: cd ~/caminho/do/seu/projeto/backend-whatsapp
+  2. Aperte Enter
+
+
+PASSO 3: Instalar dependências
+───────────────────────────────
+
+No Terminal, digite:
+
+  npm install
+
+Aperte Enter.
+
+Aguarde 2-3 minutos.
+
+Você verá textos passando e no final: "added 156 packages"
+
+
+PASSO 4: Iniciar o servidor
+────────────────────────────
+
+No Terminal, digite:
+
+  npm run start:simple
+
+Aperte Enter.
+
+AGUARDE.
+
+Você verá:
+
+╔═══════════════════════════════════════════╗
+║   🚀 WhatsApp Business API                ║
+║   ✅ Status: ONLINE                       ║
+║   🌐 Port: 3001                           ║
+╚═══════════════════════════════════════════╝
+
+✅ SUCESSO! O servidor está rodando!
+
+
+PASSO 5: NÃO FECHE O TERMINAL
+──────────────────────────────
+
+⚠️  MUITO IMPORTANTE:
+
+DEIXE ESSA JANELA DO TERMINAL ABERTA!
+
+Se fechar = Servidor para = WhatsApp não funciona.
+
+Você pode minimizar, mas NÃO FECHE.
+
+
+PASSO 6: Voltar ao navegador
+─────────────────────────────
+
+1. Volte ao Chrome/Safari
+2. Vá em: Configurações → Integrações
+3. Clique: "Conectar WhatsApp" (botão verde)
+
+
+PASSO 7: QR Code aparece
+─────────────────────────
+
+Um QR Code REAL vai aparecer.
+
+Contador de 45 segundos inicia.
+
+Escaneie com seu WhatsApp.
+
+
+PASSO 8: Escanear
+──────────────────
+
+No seu celular:
+  1. Abra WhatsApp
+  2. Toque: Menu ⋮ (Android) ou Configurações (iPhone)
+  3. Toque: "Aparelhos conectados"
+  4. Toque: "Conectar um aparelho"
+  5. Aponte a câmera para o QR Code na tela do computador
+
+
+PASSO 9: CONECTADO! ✅
+───────────────────────
+
+Status muda para "✅ Conectado"
+
+Você verá seu número de telefone.
+
+Botão "Enviar Mensagem: João Nunes" aparece.
+
+Clique para testar.
+
+FUNCIONA! 🎉
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  RESUMO ULTRA-RÁPIDO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Terminal:
+  cd backend-whatsapp
+  npm install
+  npm run start:simple
+
+Navegador:
+  Conectar WhatsApp → QR Code → Escanear → ✅
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PROBLEMAS?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❌ "npm: command not found"
+   → Node.js não instalado
+   → Baixe: https://nodejs.org/
+   → Instale versão LTS
+   → Feche e abra o Terminal
+   → Tente novamente
+
+❌ "Port 3001 already in use"
+   → Porta ocupada
+   → Execute: lsof -ti:3001 | xargs kill -9
+   → Depois: npm run start:simple
+
+❌ "Cannot find module"
+   → Faltou instalar
+   → Execute: npm install
+   → Depois: npm run start:simple
+
+❌ QR Code não aparece (servidor rodando)
+   → Aguarde 10-15 segundos
+   → Primeira vez demora (baixando Chromium)
+
+❌ QR Code expira
+   → Normal (dura 45 segundos)
+   → Clique "Gerar Novo QR Code"
+
+❌ Backend inicia mas QR não aparece
+   → Aguarde 15 segundos
+   → Clique "Tentar Novamente"
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  IMPORTANTE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. O servidor PRECISA estar rodando
+2. O Terminal DEVE ficar aberto
+3. Você verá "Status: ONLINE" no Terminal
+4. Só então funciona no navegador
+
+Para parar:
+  Ctrl + C no Terminal
+
+Para reiniciar:
+  npm run start:simple
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  CHECKLIST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Marque cada passo:
+
+□ Node.js instalado
+□ Terminal aberto
+□ Executei: cd backend-whatsapp
+□ Executei: npm install (2-3 min)
+□ Executei: npm run start:simple
+□ Vi "Status: ONLINE" no Terminal
+□ Terminal PERMANECE aberto
+□ Voltei ao navegador
+□ Cliquei "Conectar WhatsApp"
+□ QR Code apareceu
+□ Escaneei com WhatsApp
+□ Status: "Conectado" ✅
+□ Enviei mensagem de teste
+□ Recebi no WhatsApp
+□ FUNCIONA! 🚀
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎉 ISSO VAI FUNCIONAR! É SÓ SEGUIR OS PASSOS!
+
+O sistema é REAL e FUNCIONAL.
+
+Apenas precisa do servidor rodando.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+Criado para: AI LeadGen Pro | KW Portugal

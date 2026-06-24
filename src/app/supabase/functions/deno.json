@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "lib": ["deno.window", "dom", "dom.iterable"]
+  },
+  "imports": {
+    "hono": "npm:hono@latest",
+    "hono/": "npm:hono@latest/",
+    "react": "npm:react@18.2.0",
+    "react-dom": "npm:react-dom@18.2.0",
+    "@supabase/supabase-js": "npm:@supabase/supabase-js@2.39.0",
+    "motion/react": "npm:motion@11.15.0/react"
+  }
+}

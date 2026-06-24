@@ -1,0 +1,74 @@
+# ═══════════════════════════════════════════════════════════════════════
+# 📋 LISTA DE ARQUIVOS PARA COPIAR MANUALMENTE
+# ═══════════════════════════════════════════════════════════════════════
+# 
+# Você precisa baixar estes arquivos do Figma Make e colocá-los em:
+# ~/Desktop/imobhunter-deploy/supabase/functions/server/
+#
+# ═══════════════════════════════════════════════════════════════════════
+
+## ✅ ARQUIVOS CRÍTICOS (OBRIGATÓRIOS)
+
+1. index.tsx                    # ⭐ Entry point principal
+2. pdl-linkedin-api.ts          # ⭐ People Data Labs + RocketReach (NOVO)
+3. real-search-routes.ts        # ⭐ Rotas de busca (ATUALIZADO)
+4. apollo-api.ts                # Apollo.io integration
+5. intelligent-search.ts        # AI-powered search engine
+6. ai-data-merger.ts            # Merge de dados Apollo + PDL
+7. kv_store.tsx                 # KV Store (protegido - NÃO MODIFICAR)
+8. env-helper.ts                # Helper para variáveis de ambiente
+
+## 📦 MÓDULOS DE ROTAS
+
+9. search-routes.tsx            # Rotas de busca avançada
+10. linkedin-routes.ts          # LinkedIn integration
+11. linkedin-auth-routes.ts     # LinkedIn OAuth
+12. diagnostics-routes.ts       # Debug & diagnostics
+13. auth-routes.ts              # Autenticação
+14. ai-feedback-routes.ts       # AI feedback system
+15. ai-brain-routes.ts          # AI brain routes
+16. excel-import-routes.ts      # Import de Excel
+17. instagram-routes.ts         # Instagram DM
+18. api-test-routes.tsx         # API testing
+
+## 🛠️ UTILITÁRIOS & HELPERS
+
+19. lead-helpers.ts             # Lead processing helpers
+20. leads-database.ts           # Leads database operations
+21. demo-leads-generator.ts     # Demo data generator
+22. mock-data.ts                # Mock data for testing
+23. web-search-service.ts       # Web search service
+24. simple-auth.ts              # Simple auth
+25. test-startup.ts             # Startup tests
+
+## 📄 ARQUIVOS OPCIONAIS (Documentação)
+
+26. DEPLOY_INFO.md              # Deploy info
+27. VERSION.txt                 # Version tracking
+28. index-backup.tsx            # Backup do index
+
+## ⚠️ ARQUIVOS ANTIGOS (NÃO COPIAR)
+
+❌ linkedin-api.ts              # ANTIGO - Substituído por pdl-linkedin-api.ts
+❌ search-routes.ts             # ANTIGO - Use search-routes.tsx
+
+═══════════════════════════════════════════════════════════════════════
+
+## 🚀 MÉTODO RÁPIDO - CRIAR ZIP NO FIGMA MAKE
+
+Infelizmente, o Figma Make não tem uma função de download direto.
+Você precisa:
+
+1. ✅ Copiar o conteúdo de cada arquivo
+2. ✅ Criar o arquivo correspondente no Mac
+3. ✅ Colar o conteúdo
+
+═══════════════════════════════════════════════════════════════════════
+
+## 💡 ALTERNATIVA: EU CRIO OS ARQUIVOS PARA VOCÊ
+
+Posso criar scripts que contêm todos os arquivos prontos para você copiar!
+
+Quer que eu faça isso? (Responda SIM/NÃO)
+
+═══════════════════════════════════════════════════════════════════════

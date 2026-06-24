@@ -1,0 +1,239 @@
+═══════════════════════════════════════════════════════════════════════
+🚀 DEPLOY MANUAL VIA TERMINAL - PASSO A PASSO ULTRA SIMPLES
+═══════════════════════════════════════════════════════════════════════
+
+⚠️ PROBLEMA IDENTIFICADO:
+- Versão atual do servidor: 1.0.0 ❌
+- Versão esperada: 1.2.0 ✅
+- Conclusão: Supabase NÃO fez auto-deploy
+
+✅ SOLUÇÃO: Deploy manual via terminal (CLI)
+
+═══════════════════════════════════════════════════════════════════════
+📋 OPÇÃO 1: USAR SCRIPT AUTOMÁTICO (MAIS FÁCIL)
+═══════════════════════════════════════════════════════════════════════
+
+--- macOS/Linux ---
+1. Abra o Terminal
+2. Navegue até a pasta do projeto do Figma Make
+3. Execute:
+   chmod +x deploy-server.sh
+   ./deploy-server.sh
+
+4. Siga as instruções na tela
+5. Pronto! ✅
+
+--- Windows ---
+1. Abra PowerShell
+2. Navegue até a pasta do projeto do Figma Make
+3. Execute:
+   .\deploy-server.ps1
+
+4. Siga as instruções na tela
+5. Pronto! ✅
+
+═══════════════════════════════════════════════════════════════════════
+📋 OPÇÃO 2: COMANDOS MANUAIS (PASSO A PASSO)
+═══════════════════════════════════════════════════════════════════════
+
+--- 1. INSTALAR SUPABASE CLI ---
+
+macOS/Linux:
+  brew install supabase/tap/supabase
+
+Windows (com Scoop):
+  scoop bucket add supabase https://github.com/supabase/scoop-bucket.git
+  scoop install supabase
+
+Qualquer OS (com NPM):
+  npm install -g supabase
+
+--- 2. FAZER LOGIN ---
+
+  supabase login
+
+(Vai abrir o navegador - confirme e volte ao terminal)
+
+--- 3. DESCOBRIR PROJECT ID ---
+
+Vá em: https://supabase.com/dashboard
+
+Olhe na URL:
+  https://supabase.com/dashboard/project/SEU_PROJECT_ID/...
+                                        ^^^^^^^^^^^^^^^^
+                                        Copie este ID
+
+OU vá em: Project Settings → General → Reference ID
+
+--- 4. LINKAR O PROJETO ---
+
+  supabase link --project-ref SEU_PROJECT_ID_AQUI
+
+(Vai pedir senha do banco - use a senha que você configurou)
+
+--- 5. NAVEGAR ATÉ A PASTA DO PROJETO ---
+
+  cd /caminho/para/seu/projeto
+
+(A pasta que tem a estrutura: supabase/functions/server/index.tsx)
+
+⚠️ SE NÃO SOUBER O CAMINHO:
+
+O Figma Make salva os projetos em uma pasta temporária.
+Você precisará copiar o código manualmente:
+
+  a) Crie uma pasta nova:
+     mkdir -p ~/imobhunter/supabase/functions/server
+     cd ~/imobhunter
+
+  b) Inicialize o Supabase:
+     supabase init
+
+  c) Copie TODO o conteúdo do arquivo:
+     /supabase/functions/server/index.tsx
+     
+     Para o arquivo local:
+     ~/imobhunter/supabase/functions/server/index.tsx
+
+  d) Continue no passo 6
+
+--- 6. FAZER DEPLOY ---
+
+  supabase functions deploy server --project-ref SEU_PROJECT_ID
+
+Aguarde 30-60 segundos...
+
+--- 7. TESTAR SE FUNCIONOU ---
+
+  curl https://SEU_PROJECT_ID.supabase.co/functions/v1/make-server-9e4b8b7c/ping
+
+Deve retornar:
+  {
+    "status": "alive",
+    "version": "1.2.0 - Apollo Direct Route + Header Fix ✅",
+    ...
+  }
+
+Se mostrar "1.2.0" → SUCESSO! ✅
+
+═══════════════════════════════════════════════════════════════════════
+📋 OPÇÃO 3: DEPLOY VIA DASHBOARD (SEM TERMINAL)
+═══════════════════════════════════════════════════════════════════════
+
+Se você REALMENTE não quer usar terminal:
+
+1. Vá em: https://supabase.com/dashboard/project/SEU_PROJECT_ID/functions
+
+2. Clique na função "server"
+
+3. Procure por um botão que diz:
+   - "Edit Function"
+   - "Update Function"
+   - "Redeploy"
+
+4. Se encontrar, clique e cole o código do arquivo:
+   /supabase/functions/server/index.tsx
+
+5. Salve e aguarde 60 segundos
+
+⚠️ NOTA: Nem todos os planos do Supabase têm esta opção no Dashboard
+
+═══════════════════════════════════════════════════════════════════════
+🆘 TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════════
+
+--- Erro: "supabase command not found" ---
+Solução: Instale a CLI (passo 1 acima)
+
+--- Erro: "invalid credentials" ---
+Solução: 
+  supabase logout
+  supabase login
+
+--- Erro: "project not found" ---
+Solução: Verifique o Project ID
+  - Deve ser exatamente como aparece no dashboard
+  - Não inclua espaços ou caracteres extras
+
+--- Erro: "function not found" ---
+Solução: Certifique-se que a estrutura de pastas está correta:
+  supabase/
+    functions/
+      server/
+        index.tsx  ← Arquivo deve estar AQUI
+
+--- Erro: "permission denied" ---
+Solução (macOS/Linux):
+  chmod +x deploy-server.sh
+
+--- Deploy feito mas versão ainda é 1.0.0 ---
+Solução:
+  1. Aguarde 60 segundos
+  2. Limpe cache do navegador (Ctrl+Shift+R)
+  3. Verifique logs em:
+     https://supabase.com/dashboard/project/SEU_PROJECT_ID/logs
+
+═══════════════════════════════════════════════════════════════════════
+🎯 APÓS DEPLOY BEM-SUCEDIDO
+═══════════════════════════════════════════════════════════════════════
+
+1. Volte ao ImobHunter
+2. Clique no botão roxo: "VERIFICAR VERSÃO DO SERVIDOR"
+3. Deve mostrar: "Versão atual: 1.2.0" em VERDE ✅
+4. Clique em "CLIQUE AQUI PARA TESTAR A API"
+5. Deve retornar: "✅ Apollo OK! X contatos encontrados"
+
+═══════════════════════════════════════════════════════════════════════
+📞 ATALHOS ÚTEIS
+═══════════════════════════════════════════════════════════════════════
+
+Ver logs em tempo real:
+  supabase functions logs server --project-ref SEU_PROJECT_ID
+
+Listar todas as funções:
+  supabase functions list --project-ref SEU_PROJECT_ID
+
+Deletar uma função (cuidado!):
+  supabase functions delete server --project-ref SEU_PROJECT_ID
+
+Verificar versão da CLI:
+  supabase --version
+
+Atualizar CLI:
+  npm update -g supabase
+
+═══════════════════════════════════════════════════════════════════════
+📦 ARQUIVOS IMPORTANTES DO PROJETO
+═══════════════════════════════════════════════════════════════════════
+
+Código do servidor:
+  /supabase/functions/server/index.tsx (~2200 linhas)
+
+Scripts de deploy:
+  /deploy-server.sh (Linux/macOS)
+  /deploy-server.ps1 (Windows)
+
+Guias:
+  /DEPLOY_VIA_TERMINAL.txt (este arquivo)
+  /SERVER_CODE_FOR_MANUAL_DEPLOY.md
+  /AUTO_DEPLOY_GUIDE.md
+  /DEPLOY_INSTRUCTIONS.md
+
+═══════════════════════════════════════════════════════════════════════
+✅ RESUMO ULTRA RÁPIDO (PARA QUEM TEM PRESSA)
+═══════════════════════════════════════════════════════════════════════
+
+1. npm install -g supabase
+2. supabase login
+3. cd /pasta/do/projeto
+4. supabase link --project-ref SEU_PROJECT_ID
+5. supabase functions deploy server --project-ref SEU_PROJECT_ID
+6. Aguardar 60s
+7. Testar no ImobHunter
+8. Pronto! ✅
+
+═══════════════════════════════════════════════════════════════════════
+Última atualização: 2025-12-17T15:10:00Z
+Versão alvo: 1.2.0
+Status: Aguardando deploy manual via CLI
+═══════════════════════════════════════════════════════════════════════

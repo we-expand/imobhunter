@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🔥 LIMPAR localStorage ImobHunter</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            color: white;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            text-align: center;
+            max-width: 600px;
+        }
+        h1 {
+            margin: 0 0 20px 0;
+            font-size: 32px;
+        }
+        .btn {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s;
+            margin: 10px;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        .btn:active {
+            transform: scale(0.95);
+        }
+        .status {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            text-align: left;
+        }
+        .success {
+            color: #4ade80;
+        }
+        .error {
+            color: #f87171;
+        }
+        .warning {
+            color: #fbbf24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔥 ImobHunter Cache Cleaner</h1>
+        <p>Use esta ferramenta para limpar o cache e forçar recarga das configurações de API</p>
+        
+        <div class="status" id="status">
+            <div>⏳ Aguardando ação...</div>
+        </div>
+        
+        <button class="btn" onclick="limparTudo()">🗑️ LIMPAR TUDO</button>
+        <button class="btn" onclick="verificarConfig()">🔍 VERIFICAR CONFIG</button>
+        <button class="btn" onclick="forcarChaves()">🔑 FORÇAR CHAVES</button>
+        
+        <p style="margin-top: 30px; font-size: 14px; opacity: 0.8;">
+            Após limpar, atualize a página do ImobHunter (Cmd/Ctrl + Shift + R)
+        </p>
+    </div>
+
+    <script>
+        function log(message, type = 'info') {
+            const status = document.getElementById('status');
+            const color = type === 'success' ? 'success' : type === 'error' ? 'error' : 'warning';
+            status.innerHTML += `<div class="${color}">${message}</div>`;
+            console.log(message);
+        }
+
+        function limparTudo() {
+            document.getElementById('status').innerHTML = '';
+            log('🔄 Iniciando limpeza completa...', 'warning');
+            
+            try {
+                // Limpar localStorage
+                const keys = Object.keys(localStorage);
+                log(`📦 Encontrado ${keys.length} itens no localStorage`, 'info');
+                
+                keys.forEach(key => {
+                    if (key.includes('imobhunter') || key.includes('apollo') || key.includes('api')) {
+                        log(`🗑️ Removendo: ${key}`, 'warning');
+                        localStorage.removeItem(key);
+                    }
+                });
+                
+                // Limpar sessionStorage
+                sessionStorage.clear();
+                log('✅ sessionStorage limpo', 'success');
+                
+                // Limpar cookies
+                document.cookie.split(";").forEach(function(c) { 
+                    document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); 
+                });
+                log('✅ Cookies limpos', 'success');
+                
+                log('', 'info');
+                log('✅ LIMPEZA COMPLETA! Agora force refresh: Cmd/Ctrl + Shift + R', 'success');
+                
+            } catch (error) {
+                log(`❌ Erro: ${error.message}`, 'error');
+            }
+        }
+
+        function verificarConfig() {
+            document.getElementById('status').innerHTML = '';
+            log('🔍 Verificando configuração atual...', 'warning');
+            
+            try {
+                const config = localStorage.getItem('imobhunter_api_config');
+                
+                if (!config) {
+                    log('⚠️ Nenhuma configuração encontrada no localStorage', 'warning');
+                    log('✅ Isso é BOM! As chaves serão carregadas do código', 'success');
+                } else {
+                    log('📦 Configuração encontrada:', 'info');
+                    const parsed = JSON.parse(config);
+                    log(`   Apollo: ${parsed.apolloApiKey ? '✅ ' + parsed.apolloApiKey : '❌ Não configurado'}`, parsed.apolloApiKey ? 'success' : 'error');
+                    log(`   Proxycurl: ${parsed.proxycurlApiKey ? '✅ ' + parsed.proxycurlApiKey : '❌ Não configurado'}`, parsed.proxycurlApiKey ? 'success' : 'error');
+                }
+                
+                log('', 'info');
+                log('🔑 Chaves esperadas:', 'info');
+                log('   Apollo: 2MzD573PNMUDo1kBRJUuA', 'info');
+                log('   Proxycurl: b959e024b59143eea04eae0d296beebb', 'info');
+                
+            } catch (error) {
+                log(`❌ Erro ao verificar: ${error.message}`, 'error');
+            }
+        }
+
+        function forcarChaves() {
+            document.getElementById('status').innerHTML = '';
+            log('🔑 Forçando chaves corretas...', 'warning');
+            
+            try {
+                const config = {
+                    apolloApiKey: '2MzD573PNMUDo1kBRJUuA',
+                    proxycurlApiKey: 'b959e024b59143eea04eae0d296beebb'
+                };
+                
+                localStorage.setItem('imobhunter_api_config', JSON.stringify(config));
+                log('✅ Chaves salvas no localStorage!', 'success');
+                log('   Apollo: 2MzD573PNMUDo1kBRJUuA', 'success');
+                log('   Proxycurl: b959e024b59143eea04eae0d296beebb', 'success');
+                log('', 'info');
+                log('✅ PRONTO! Agora atualize o ImobHunter (Cmd/Ctrl + Shift + R)', 'success');
+                
+            } catch (error) {
+                log(`❌ Erro: ${error.message}`, 'error');
+            }
+        }
+
+        // Auto-verificar ao carregar
+        window.onload = function() {
+            verificarConfig();
+        };
+    </script>
+</body>
+</html>

@@ -1,13 +1,11 @@
-# 🏠 ImobHunter
 
-Sistema SaaS de Lead Generation & Nurturing autónomo para o mercado imobiliário.
+  # ImobHunter
 
-## 🚀 Stack
+  This is a code bundle for ImobHunter. The original project is available at https://www.figma.com/design/0wBC3ZfFzvFZqchhirtype/ImobHunter.
 
-- Frontend: React + TypeScript + Tailwind CSS
-- Backend: Supabase Edge Functions (Deno + Hono)
-- APIs: Apollo.io + People Data Labs + RocketReach
+  ## Running the code
 
-## 📦 Deploy
+  Run `npm i` to install the dependencies.
 
-GitHub Auto-Deploy → Supabase Edge Functions
+  Run `npm run dev` to start the development server.
+  

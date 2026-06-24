@@ -1,0 +1,116 @@
+═══════════════════════════════════════════════════════════════════════
+🚀 COMANDOS PARA EXECUTAR NO SEU TERMINAL MAC
+═══════════════════════════════════════════════════════════════════════
+
+✅ API KEYS JÁ CONFIGURADAS COM SUCESSO!
+   - PDL_API_KEY: d80c2bd3775...
+   - ROCKETREACH_API_KEY: 17ae219k6e7...
+
+📍 AGORA SÓ FALTA FAZER O DEPLOY DO CÓDIGO ATUALIZADO
+
+═══════════════════════════════════════════════════════════════════════
+OPÇÃO 1: DEPLOY VIA LINHA DE COMANDO (Mais Rápido)
+═══════════════════════════════════════════════════════════════════════
+
+1️⃣ Descobrir onde está este código:
+
+pwd
+
+
+2️⃣ Se você NÃO vir "supabase/functions" no caminho acima, navegue até a pasta correta.
+   O código está salvo em algum lugar no seu Mac.
+   
+   Exemplos possíveis:
+   cd ~/Desktop/ImobHunter
+   cd ~/Documents/ImobHunter
+   cd ~/Downloads/ImobHunter
+
+
+3️⃣ Execute o deploy:
+
+supabase functions deploy server --project-ref evdyqlrssgsktctjruuq --no-verify-jwt
+
+
+4️⃣ Aguarde 30 segundos e teste:
+
+sleep 30
+curl "https://evdyqlrssgsktctjruuq.supabase.co/functions/v1/server/make-server-9e4b8b7c/debug/env-vars"
+
+
+═══════════════════════════════════════════════════════════════════════
+OPÇÃO 2: DEPLOY VIA DASHBOARD WEB (Mais Fácil)
+═══════════════════════════════════════════════════════════════════════
+
+1. Abra no navegador:
+   https://supabase.com/dashboard/project/evdyqlrssgsktctjruuq/functions
+
+2. Procure pela função "server" na lista
+
+3. Clique nos 3 pontinhos (...) ao lado de "server"
+
+4. Clique em "Deploy"
+
+5. Aguarde ~1 minuto
+
+6. Teste no ImobHunter: Ctrl+Shift+T → "Diagnóstico Completo"
+
+
+═══════════════════════════════════════════════════════════════════════
+OPÇÃO 3: SE VOCÊ USA GIT/GITHUB
+═══════════════════════════════════════════════════════════════════════
+
+Se o projeto está conectado ao GitHub com auto-deploy:
+
+git add .
+git commit -m "Update: PDL + RocketReach APIs"
+git push
+
+O Supabase fará deploy automaticamente em ~2 minutos.
+
+
+═══════════════════════════════════════════════════════════════════════
+🧪 COMO VERIFICAR SE FUNCIONOU
+═══════════════════════════════════════════════════════════════════════
+
+1. Abra o ImobHunter no navegador
+
+2. Pressione: Ctrl + Shift + T
+
+3. Clique em "Diagnóstico Completo"
+
+4. Deve aparecer:
+   ✅ PDL (People Data Labs): Configurada ✓
+   ✅ RocketReach: Configurada ✓
+   ✅ Apollo.io: Configurada ✓
+
+
+═══════════════════════════════════════════════════════════════════════
+❓ PROBLEMAS COMUNS
+═══════════════════════════════════════════════════════════════════════
+
+❌ "command not found: supabase"
+   Solução: npm install -g supabase
+
+❌ "Docker is not running"
+   Solução: Ignore - não é necessário para deploy remoto
+
+❌ "Function not found" (404)
+   Solução: O deploy ainda não foi feito. Use a Opção 2 (Dashboard Web)
+
+❌ "no such file or directory"
+   Solução: Você está na pasta errada. Use "pwd" para ver onde está.
+
+
+═══════════════════════════════════════════════════════════════════════
+📞 PRECISA DE AJUDA?
+═══════════════════════════════════════════════════════════════════════
+
+Me diga:
+1. O resultado do comando "pwd" no terminal
+2. Se você vê a pasta "supabase" onde está agora
+3. Qual erro apareceu (se houver)
+
+Vou te ajudar a resolver!
+
+
+═══════════════════════════════════════════════════════════════════════

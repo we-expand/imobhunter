@@ -1,4 +1,0 @@
-[project]
-name = "ImobHunter"
-[functions.make-server-9e4b8b7c]
-verify_jwt = false

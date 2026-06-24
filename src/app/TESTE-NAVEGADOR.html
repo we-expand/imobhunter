@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teste de Autenticação - ImobHunter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Teste de Autenticação - ImobHunter</h1>
+    
+    <div class="test-section">
+        <h2>1️⃣ Teste de PING</h2>
+        <p>Verifica se o servidor está rodando</p>
+        <button onclick="testPing()">Testar /ping</button>
+        <div id="ping-result" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>2️⃣ Teste de AUTH-TEST</h2>
+        <p>Verifica se as rotas de autenticação estão registradas</p>
+        <button onclick="testAuthTest()">Testar /auth-test</button>
+        <div id="auth-test-result" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>3️⃣ Teste de SIGNUP</h2>
+        <p>Cria uma nova conta de teste</p>
+        <button onclick="testSignup()">Testar /auth/signup</button>
+        <div id="signup-result" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>4️⃣ Teste de LOGIN</h2>
+        <p>Faz login com a conta criada</p>
+        <input type="email" id="login-email" placeholder="Email" style="padding: 8px; margin: 5px; width: 250px;">
+        <input type="password" id="login-password" placeholder="Senha" value="123456" style="padding: 8px; margin: 5px; width: 150px;">
+        <button onclick="testLogin()">Testar /auth/login</button>
+        <div id="login-result" class="result"></div>
+    </div>
+
+    <script>
+        const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV2ZHlxbHJzc2dza3RjdGpydXVxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU5Nzk1NzAsImV4cCI6MjA4MTU1NTU3MH0.7Z71n-3HpwqI-T5vrc6XnG-Es_nlWLxDEX2AvqGXzDw';
+        const BASE_URL = 'https://evdyqlrssgsktctjruuq.supabase.co/functions/v1/make-server-9e4b8b7c';
+
+        function showResult(elementId, data, isError = false) {
+            const element = document.getElementById(elementId);
+            element.className = isError ? 'result error' : 'result success';
+            element.textContent = JSON.stringify(data, null, 2);
+        }
+
+        async function testPing() {
+            const resultEl = document.getElementById('ping-result');
+            resultEl.textContent = '⏳ Testando...';
+            
+            try {
+                console.log('📍 URL:', `${BASE_URL}/ping`);
+                const response = await fetch(`${BASE_URL}/ping`, {
+                    headers: {
+                        'Authorization': `Bearer ${TOKEN}`
+                    }
+                });
+                
+                console.log('📡 Status:', response.status);
+                
+                const data = await response.json();
+                console.log('📊 Resposta:', data);
+                
+                showResult('ping-result', {
+                    status: response.status,
+                    statusText: response.statusText,
+                    data: data
+                }, !response.ok);
+                
+            } catch (error) {
+                console.error('❌ Erro:', error);
+                showResult('ping-result', {
+                    error: error.message,
+                    details: 'Verifique o console para mais detalhes'
+                }, true);
+            }
+        }
+
+        async function testAuthTest() {
+            const resultEl = document.getElementById('auth-test-result');
+            resultEl.textContent = '⏳ Testando...';
+            
+            try {
+                console.log('📍 URL:', `${BASE_URL}/auth-test`);
+                const response = await fetch(`${BASE_URL}/auth-test`);
+                
+                console.log('📡 Status:', response.status);
+                
+                const data = await response.json();
+                console.log('📊 Resposta:', data);
+                
+                showResult('auth-test-result', {
+                    status: response.status,
+                    statusText: response.statusText,
+                    data: data
+                }, !response.ok);
+                
+            } catch (error) {
+                console.error('❌ Erro:', error);
+                showResult('auth-test-result', {
+                    error: error.message,
+                    details: 'Verifique o console para mais detalhes'
+                }, true);
+            }
+        }
+
+        async function testSignup() {
+            const resultEl = document.getElementById('signup-result');
+            resultEl.textContent = '⏳ Testando...';
+            
+            const randomEmail = `teste-${Date.now()}@exemplo.com`;
+            
+            try {
+                console.log('📍 URL:', `${BASE_URL}/auth/signup`);
+                console.log('📧 Email:', randomEmail);
+                
+                const response = await fetch(`${BASE_URL}/auth/signup`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${TOKEN}`
+                    },
+                    body: JSON.stringify({
+                        email: randomEmail,
+                        password: '123456',
+                        name: 'Teste Usuario'
+                    })
+                });
+                
+                console.log('📡 Status:', response.status);
+                
+                const data = await response.json();
+                console.log('📊 Resposta:', data);
+                
+                if (response.ok) {
+                    document.getElementById('login-email').value = randomEmail;
+                }
+                
+                showResult('signup-result', {
+                    status: response.status,
+                    statusText: response.statusText,
+                    email: randomEmail,
+                    data: data
+                }, !response.ok);
+                
+            } catch (error) {
+                console.error('❌ Erro:', error);
+                showResult('signup-result', {
+                    error: error.message,
+                    details: 'Verifique o console para mais detalhes'
+                }, true);
+            }
+        }
+
+        async function testLogin() {
+            const resultEl = document.getElementById('login-result');
+            resultEl.textContent = '⏳ Testando...';
+            
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            
+            if (!email) {
+                showResult('login-result', {
+                    error: 'Por favor, execute o teste de SIGNUP primeiro ou digite um email'
+                }, true);
+                return;
+            }
+            
+            try {
+                console.log('📍 URL:', `${BASE_URL}/auth/login`);
+                console.log('📧 Email:', email);
+                
+                const response = await fetch(`${BASE_URL}/auth/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${TOKEN}`
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        password: password
+                    })
+                });
+                
+                console.log('📡 Status:', response.status);
+                
+                const data = await response.json();
+                console.log('📊 Resposta:', data);
+                
+                showResult('login-result', {
+                    status: response.status,
+                    statusText: response.statusText,
+                    data: data
+                }, !response.ok);
+                
+            } catch (error) {
+                console.error('❌ Erro:', error);
+                showResult('login-result', {
+                    error: error.message,
+                    details: 'Verifique o console para mais detalhes'
+                }, true);
+            }
+        }
+    </script>
+</body>
+</html>

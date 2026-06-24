@@ -1,0 +1,30 @@
+{
+  "name": "ai-leadgen-whatsapp-server",
+  "version": "1.0.0",
+  "description": "WhatsApp Business API Server for AI LeadGen Pro",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:simple": "node server-simple.js",
+    "dev": "nodemon server.js",
+    "dev:simple": "nodemon server-simple.js"
+  },
+  "keywords": ["whatsapp", "business", "api", "leadgen"],
+  "author": "AI LeadGen Pro",
+  "license": "MIT",
+  "dependencies": {
+    "whatsapp-web.js": "^1.23.0",
+    "qrcode": "^1.5.3",
+    "qrcode-terminal": "^0.12.0",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "@supabase/supabase-js": "^2.38.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

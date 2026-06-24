@@ -1,0 +1,114 @@
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║         🚨 VOCÊ VIU O ERRO "BACKEND NÃO ESTÁ RODANDO"?      ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  POR QUE ESTÁ DANDO ERRO?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+O WhatsApp Business API precisa de um SERVIDOR LOCAL rodando.
+
+O servidor NÃO inicia automaticamente.
+
+VOCÊ PRECISA iniciar manualmente.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  COMO RESOLVER (3 COMANDOS)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+PASSO 1: Abra o Terminal
+─────────────────────────
+
+Mac:
+  • Pressione: Cmd + Espaço
+  • Digite: Terminal
+  • Aperte: Enter
+
+
+PASSO 2: Execute estes comandos
+────────────────────────────────
+
+Cole um comando por vez:
+
+  cd backend-whatsapp
+
+  npm install
+
+  npm run start:simple
+
+
+PASSO 3: Aguarde o servidor iniciar
+────────────────────────────────────
+
+Você verá:
+
+╔═══════════════════════════════════════════╗
+║   🚀 WhatsApp Business API                ║
+║   ✅ Status: ONLINE                       ║
+║   🌐 Port: 3001                           ║
+╚═══════════════════════════════════════════╝
+
+✅ PRONTO! Backend rodando!
+
+
+PASSO 4: Volte ao navegador
+────────────────────────────
+
+  • Clique: "Tentar Novamente"
+  • QR Code vai aparecer
+  • Escaneie com WhatsApp
+  • CONECTADO! ✅
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  IMPORTANTE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️  DEIXE O TERMINAL ABERTO!
+
+Se fechar o Terminal, o WhatsApp para de funcionar.
+
+Para parar: Ctrl + C
+Para reiniciar: npm run start:simple
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PROBLEMAS?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❌ "npm: command not found"
+   → Instale Node.js: https://nodejs.org/
+
+❌ "Port 3001 already in use"
+   → Execute: lsof -ti:3001 | xargs kill -9
+
+❌ Outro problema?
+   → Veja: /INICIAR_AGORA.md
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  RESUMO RÁPIDO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Terminal:
+  cd backend-whatsapp
+  npm install
+  npm run start:simple
+
+Navegador:
+  Tentar Novamente → QR Code → Escanear → ✅
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 VAI FUNCIONAR! É SÓ SEGUIR OS PASSOS!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+Criado para: AI LeadGen Pro | KW Portugal

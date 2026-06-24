@@ -1,0 +1,111 @@
+════════════════════════════════════════════════════════════
+🚀 COLE EXATAMENTE ESTES COMANDOS NO SEU TERMINAL
+════════════════════════════════════════════════════════════
+
+⚠️  IMPORTANTE: Este projeto está no FIGMA MAKE, não no seu Mac!
+    Os arquivos estão dentro da interface do Figma Make.
+
+════════════════════════════════════════════════════════════
+📋 OPÇÃO 1: Deploy via Dashboard (RECOMENDADO - MAIS FÁCIL)
+════════════════════════════════════════════════════════════
+
+Como o projeto está no Figma Make e não localmente no seu Mac,
+o melhor método é usar o Dashboard do Supabase:
+
+1. 🌐 Acesse este link no navegador:
+   https://supabase.com/dashboard/project/evdyqlrssgsktctjruuq/functions
+
+2. 🔑 Faça login se necessário
+
+3. 🖱️ Clique em "server" na lista de funções
+   (ou clique em "New Function" se não existir)
+
+4. 📝 No editor que aparecer, você vai colar o código do servidor
+
+5. 📋 Onde está o código? 
+   - Está no arquivo: /supabase/functions/server/index.tsx
+   - Você pode ver ele na interface do Figma Make
+   - Copie TODO o conteúdo deste arquivo
+
+6. 🚀 Clique em "Deploy" no canto superior direito
+
+7. ⏱️ Aguarde 30 segundos
+
+8. ✅ PRONTO! Seu servidor está no ar!
+
+════════════════════════════════════════════════════════════
+📋 OPÇÃO 2: Deploy via Supabase CLI (Se tiver o projeto local)
+════════════════════════════════════════════════════════════
+
+Se você tem o projeto baixado localmente no seu Mac:
+
+# Passo 1: Descobrir onde está o projeto
+find ~ -name "index.tsx" -path "*/supabase/functions/server/*" 2>/dev/null
+
+# Passo 2: Ir até o diretório (substitua o caminho pelo resultado acima)
+cd /Users/clebercouto/caminho/do/projeto
+
+# Passo 3: Verificar se está no lugar certo
+ls supabase/functions/server/index.tsx
+
+# Passo 4: Deploy (se acima mostrou o arquivo)
+supabase functions deploy server --project-ref evdyqlrssgsktctjruuq --no-verify-jwt
+
+════════════════════════════════════════════════════════════
+🧪 TESTAR SE O SERVIDOR ESTÁ FUNCIONANDO
+════════════════════════════════════════════════════════════
+
+Depois de fazer o deploy por QUALQUER método, aguarde 30 segundos e teste:
+
+curl https://evdyqlrssgsktctjruuq.supabase.co/functions/v1/make-server-9e4b8b7c/ping
+
+✅ Resposta esperada: {"status":"ok","message":"Server is running"}
+
+════════════════════════════════════════════════════════════
+🎯 DEPOIS QUE O SERVIDOR ESTIVER NO AR
+════════════════════════════════════════════════════════════
+
+1. ✅ Servidor deployado e respondendo ao ping
+
+2. 🔄 Recarregue sua aplicação no navegador
+   - Pressione: Ctrl + Shift + R (Windows/Linux)
+   - Pressione: Cmd + Shift + R (Mac)
+
+3. 🔍 Faça uma busca no ImobHunter
+
+4. 🎉 AGORA VAI APARECER DADOS REAIS!
+   - Não vai mais mostrar o banner "Modo Demo"
+   - Resultados virão das APIs Apollo.io e Proxycurl
+   - Dados reais de pessoas e empresas
+
+════════════════════════════════════════════════════════════
+❓ POR QUE NÃO FUNCIONA NO TERMINAL?
+════════════════════════════════════════════════════════════
+
+Você viu este erro:
+
+  clebercouto@Mac ~ % supabase functions deploy server
+  ❌ no such file or directory
+
+MOTIVO: O projeto ImobHunter está no FIGMA MAKE (plataforma web),
+não está baixado localmente no seu Mac no diretório ~/
+
+SOLUÇÃO: Use o Dashboard do Supabase (Opção 1 acima) OU baixe 
+o projeto completo do Figma Make para seu Mac primeiro.
+
+════════════════════════════════════════════════════════════
+🎯 RECOMENDAÇÃO FINAL
+════════════════════════════════════════════════════════════
+
+👉 Use a OPÇÃO 1 (Dashboard) - é o mais simples!
+
+1. Entre no dashboard: https://supabase.com/dashboard/project/evdyqlrssgsktctjruuq/functions
+2. Clique em "server"
+3. Cole o código de /supabase/functions/server/index.tsx
+4. Deploy
+5. Aguarde 30s
+6. Teste: curl https://evdyqlrssgsktctjruuq.supabase.co/functions/v1/make-server-9e4b8b7c/ping
+7. Recarregue o app
+8. DADOS REAIS! 🎉
+
+════════════════════════════════════════════════════════════

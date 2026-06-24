@@ -1,0 +1,124 @@
+═══════════════════════════════════════════════════════════════════════
+🚀 IMOBHUNTER - COMANDOS DE DEPLOY (V2)
+═══════════════════════════════════════════════════════════════════════
+
+📍 PASSO A PASSO COMPLETO
+═══════════════════════════════════════════════════════════════════════
+
+1️⃣ ABRIR TERMINAL
+   - Aperte Cmd + Espaço
+   - Digite "Terminal"
+   - Aperte Enter
+
+2️⃣ NAVEGAR ATÉ A PASTA DO PROJETO
+   Cole este comando:
+   
+   cd ~/Downloads/ImobHunter
+
+3️⃣ LINKAR AO PROJETO SUPABASE
+   Cole este comando:
+   
+   supabase link --project-ref evdyqlrssgsktctjruuq
+   
+   ⚠️  Se pedir senha, apenas aperte ENTER (pode pular)
+   
+   OU use este comando que pula a senha:
+   
+   supabase link --project-ref evdyqlrssgsktctjruuq --password 'temp123'
+
+4️⃣ FAZER DEPLOY DA FUNÇÃO (V2)
+   Cole este comando:
+   
+   supabase functions deploy make-server-v2
+
+   ⏳ Aguarde 30-60 segundos para o deploy completar
+
+5️⃣ TESTAR SE FUNCIONOU
+   AGUARDE 60 SEGUNDOS após o deploy terminar, então cole:
+   
+   curl https://evdyqlrssgsktctjruuq.supabase.co/functions/v1/make-server-v2/ping
+   
+   ✅ RESPOSTA ESPERADA:
+   {
+     "status": "alive",
+     "version": "1.2.0 - ImobHunter Simplified Deploy ✅",
+     "message": "Servidor está funcionando! ✅"
+   }
+
+═══════════════════════════════════════════════════════════════════════
+🎯 MODO SUPER RÁPIDO (COPIE TUDO DE UMA VEZ)
+═══════════════════════════════════════════════════════════════════════
+
+cd ~/Downloads/ImobHunter && \
+supabase link --project-ref evdyqlrssgsktctjruuq --password 'temp123' && \
+supabase functions deploy make-server-v2
+
+Depois aguarde 60 segundos e teste:
+
+curl https://evdyqlrssgsktctjruuq.supabase.co/functions/v1/make-server-v2/ping
+
+═══════════════════════════════════════════════════════════════════════
+🆘 TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════════
+
+❌ PROBLEMA: "no such file or directory"
+✅ SOLUÇÃO: Você não está na pasta certa. Execute:
+   cd ~/Downloads/ImobHunter
+
+❌ PROBLEMA: "failed to scan line: expected newline"
+✅ SOLUÇÃO: Você tentou executar o link fora da pasta. Execute:
+   cd ~/Downloads/ImobHunter
+   Depois tente o link novamente
+
+❌ PROBLEMA: "command not found: supabase"
+✅ SOLUÇÃO: Supabase CLI não está instalado. Execute:
+   brew install supabase/tap/supabase
+
+❌ PROBLEMA: "not logged in"
+✅ SOLUÇÃO: Você precisa fazer login. Execute:
+   supabase login
+
+❌ PROBLEMA: Deploy funciona mas curl retorna erro
+✅ SOLUÇÃO: Aguarde 60-90 segundos. Edge Functions demoram para ficar disponíveis.
+
+❌ PROBLEMA: Curl retorna "Function not found"
+✅ SOLUÇÃO: 
+   1. Vá em: https://supabase.com/dashboard/project/evdyqlrssgsktctjruuq/functions
+   2. Verifique se a função "make-server-v2" aparece na lista
+   3. Clique nela e veja os logs
+
+═══════════════════════════════════════════════════════════════════════
+📊 LINKS ÚTEIS
+═══════════════════════════════════════════════════════════════════════
+
+🌐 Dashboard Principal
+   https://supabase.com/dashboard/project/evdyqlrssgsktctjruuq
+
+⚡ Edge Functions
+   https://supabase.com/dashboard/project/evdyqlrssgsktctjruuq/functions
+
+100: 🔑 Secrets (Variáveis de Ambiente)
+   https://supabase.com/dashboard/project/evdyqlrssgsktctjruuq/settings/vault/secrets
+
+📝 Logs em Tempo Real
+   Execute: supabase functions logs make-server-v2 --follow
+
+🔄 Ver todas as funções deployadas
+   Execute: supabase functions list
+
+═══════════════════════════════════════════════════════════════════════
+✅ CHECKLIST FINAL
+═══════════════════════════════════════════════════════════════════════
+
+[ ] Supabase CLI instalado (brew install supabase/tap/supabase)
+[ ] Login feito (supabase login)
+[ ] Dentro da pasta correta (cd ~/Downloads/ImobHunter)
+[ ] Projeto linkado (supabase link --project-ref evdyqlrssgsktctjruuq)
+[ ] Deploy executado (supabase functions deploy make-server-v2)
+[ ] Aguardou 60 segundos
+[ ] Teste executado (curl https://evdyqlrssgsktctjruuq.supabase.co/functions/v1/make-server-v2/ping)
+[ ] Recebeu resposta com "status": "alive"
+
+═══════════════════════════════════════════════════════════════════════
+🎉 PRONTO! SEU SERVIDOR ESTÁ NO AR!
+═══════════════════════════════════════════════════════════════════════

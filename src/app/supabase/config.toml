@@ -1,0 +1,9 @@
+# Supabase Configuration File
+# Project ID: evdyqlrssgsktctjruuq
+
+project_id = "evdyqlrssgsktctjruuq"
+
+# Edge Functions Configuration
+
+[functions.make-server-v2]
+verify_jwt = false

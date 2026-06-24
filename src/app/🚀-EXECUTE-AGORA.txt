@@ -1,0 +1,61 @@
+═══════════════════════════════════════════════════════════════════════
+🚀 IMOBHUNTER - DEPLOY AUTOMÁTICO EM 1 COMANDO
+═══════════════════════════════════════════════════════════════════════
+
+📋 INSTRUÇÕES ULTRA-SIMPLES:
+
+1️⃣  ABRA O TERMINAL (já está aberto)
+
+2️⃣  COLE ESTE COMANDO INTEIRO:
+
+
+cd ~/Desktop/imobhunter && cat > supabase/functions/server/index.tsx << 'EOF'
+import { Hono } from "npm:hono@4";
+import { cors } from "npm:hono/cors";
+import { logger } from "npm:hono/logger";
+
+const app = new Hono();
+app.use("*", cors({ origin: "*", allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], allowHeaders: ["Content-Type", "Authorization"] }));
+app.use("*", logger(console.log));
+app.get("/make-server-9e4b8b7c/health", (c) => c.json({ status: "ok", timestamp: new Date().toISOString() }));
+app.get("/make-server-9e4b8b7c/test", (c) => c.json({ message: "ImobHunter OK!", apis: { apollo: !!Deno.env.get("APOLLO_API_KEY"), pdl: !!Deno.env.get("PDL_API_KEY"), rocketreach: !!Deno.env.get("ROCKETREACH_API_KEY") } }));
+app.onError((err, c) => { console.error("❌", err); return c.json({ error: err.message }, 500); });
+console.log("🚀 ImobHunter iniciando...");
+Deno.serve(app.fetch);
+EOF
+
+cat > supabase/functions/server/kv_store.tsx << 'EOF2'
+import { createClient } from "jsr:@supabase/supabase-js@2";
+const supabase = createClient(Deno.env.get("SUPABASE_URL") ?? "", Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "");
+export async function get(key: string) { const { data } = await supabase.from("kv_store_9e4b8b7c").select("value").eq("key", key).single(); return data?.value || null; }
+export async function set(key: string, value: any) { await supabase.from("kv_store_9e4b8b7c").upsert({ key, value }); }
+export async function del(key: string) { await supabase.from("kv_store_9e4b8b7c").delete().eq("key", key); }
+export async function mget(keys: string[]) { const { data } = await supabase.from("kv_store_9e4b8b7c").select("value").in("key", keys); return data?.map(d => d.value) || []; }
+export async function mset(items: Record<string, any>) { const entries = Object.entries(items).map(([key, value]) => ({ key, value })); await supabase.from("kv_store_9e4b8b7c").upsert(entries); }
+export async function mdel(keys: string[]) { await supabase.from("kv_store_9e4b8b7c").delete().in("key", keys); }
+export async function getByPrefix(prefix: string) { const { data } = await supabase.from("kv_store_9e4b8b7c").select("value").like("key", `${prefix}%`); return data?.map(d => d.value) || []; }
+EOF2
+
+cat > supabase/config.toml << 'EOF3'
+[project]
+name = "ImobHunter"
+[functions.make-server-9e4b8b7c]
+verify_jwt = false
+EOF3
+
+git add . && git commit -m "🚀 Deploy ImobHunter" && git push -u origin main && echo "" && echo "✅ SUCESSO! Agora vá para o Supabase Dashboard e conecte o GitHub"
+
+
+3️⃣  APERTE ENTER
+
+4️⃣  AGUARDE ATÉ VER "✅ SUCESSO!"
+
+5️⃣  DEPOIS:
+    - Ir para: https://supabase.com/dashboard/project/_/settings/integrations
+    - Clicar em "Connect to GitHub"
+    - Selecionar: clebercouto/imobhunter
+    - Ativar Auto-Deploy (branch: main)
+
+═══════════════════════════════════════════════════════════════════════
+🎯 ISSO É TUDO! O RESTO É AUTOMÁTICO!
+═══════════════════════════════════════════════════════════════════════

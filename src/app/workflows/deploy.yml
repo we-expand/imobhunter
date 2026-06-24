@@ -1,0 +1,34 @@
+name: Deploy to Supabase
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      PROJECT_ID: evdyqlrssgsktctjruuq
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Supabase CLI
+        run: npm install -g supabase
+
+      - name: Deploy Edge Functions
+        run: |
+          supabase functions deploy make-server-v2 --project-ref $PROJECT_ID --no-verify-jwt
+          supabase functions deploy whatsapp-init --project-ref $PROJECT_ID --no-verify-jwt
+          supabase functions deploy whatsapp-send --project-ref $PROJECT_ID --no-verify-jwt
+          supabase functions deploy whatsapp-disconnect --project-ref $PROJECT_ID --no-verify-jwt

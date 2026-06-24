@@ -1,0 +1,96 @@
+═══════════════════════════════════════════════════════════════════════
+🚨 SOLUÇÃO DEFINITIVA PARA O ERRO "NOT FOUND" NO LOGIN
+═══════════════════════════════════════════════════════════════════════
+
+O PROBLEMA:
+  Quando você tenta fazer login, aparece "Not Found"
+  
+A CAUSA:
+  O servidor Edge Function do Supabase não foi deployado ainda
+  
+A SOLUÇÃO:
+  Fazer o deploy da função "server" no Supabase
+
+═══════════════════════════════════════════════════════════════════════
+🎯 OPÇÃO 1: TESTE VISUAL (MAIS FÁCIL)
+═══════════════════════════════════════════════════════════════════════
+
+1. Abra o arquivo "index.html" no navegador
+   (Duplo clique ou arraste para o navegador)
+
+2. O teste vai rodar automaticamente e mostrar:
+   ✅ Se está funcionando
+   ❌ Se está com erro + instruções de como corrigir
+
+═══════════════════════════════════════════════════════════════════════
+🎯 OPÇÃO 2: DEPLOY AUTOMÁTICO (RECOMENDADO)
+═══════════════════════════════════════════════════════════════════════
+
+1. Abra o Terminal
+
+2. Execute:
+   cd ~/Downloads/ImobHunter
+
+3. Execute:
+   chmod +x DEPLOY-AGORA.sh && ./DEPLOY-AGORA.sh
+
+4. Aguarde até ver "SUCESSO!"
+
+5. Abra o index.html no navegador para confirmar
+
+═══════════════════════════════════════════════════════════════════════
+🎯 OPÇÃO 3: DEPLOY MANUAL
+═══════════════════════════════════════════════════════════════════════
+
+1. Abra o Terminal
+
+2. Execute um comando por vez:
+
+   cd ~/Downloads/ImobHunter
+   
+   supabase link --project-ref evdyqlrssgsktctjruuq
+   
+   supabase functions deploy server
+   
+   (Aguarde 40 segundos)
+   
+   curl https://evdyqlrssgsktctjruuq.supabase.co/functions/v1/make-server-9e4b8b7c/ping
+
+3. Se aparecer {"status":"alive",...}, está funcionando!
+
+═══════════════════════════════════════════════════════════════════════
+📱 DEPOIS DO DEPLOY, NO NAVEGADOR:
+═══════════════════════════════════════════════════════════════════════
+
+1. Abra a aplicação ImobHunter
+
+2. Pressione F12 (abre o Console)
+
+3. Cole e execute:
+   localStorage.clear()
+
+4. Cole e execute:
+   location.reload()
+
+5. Tente fazer login novamente
+
+═══════════════════════════════════════════════════════════════════════
+❓ DÚVIDAS?
+═══════════════════════════════════════════════════════════════════════
+
+1. Abra o index.html para ver o status em tempo real
+
+2. Execute o DEPLOY-AGORA.sh para fazer deploy automaticamente
+
+3. Compartilhe o resultado comigo se ainda não funcionar
+
+═══════════════════════════════════════════════════════════════════════
+
+ARQUIVOS CRIADOS PARA VOCÊ:
+
+📄 index.html           → Teste visual no navegador
+📄 DEPLOY-AGORA.sh      → Deploy automático com 1 comando
+📄 README-URGENTE.md    → Guia rápido em Markdown
+📄 LEIA-ISTO.txt        → Este arquivo (instruções completas)
+
+═══════════════════════════════════════════════════════════════════════

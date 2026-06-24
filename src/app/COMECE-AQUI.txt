@@ -1,0 +1,77 @@
+═══════════════════════════════════════════════════════════════════════
+🚨 IMOBHUNTER - ERRO "NOT FOUND" NO LOGIN
+═══════════════════════════════════════════════════════════════════════
+
+PROBLEMA: Quando tenta fazer login, aparece "Not Found"
+
+SOLUÇÃO: Fazer deploy do servidor Edge Function
+
+═══════════════════════════════════════════════════════════════════════
+
+⚡ SOLUÇÃO EM 1 COMANDO:
+
+cd ~/Downloads/ImobHunter && chmod +x DEPLOY-E-TESTE-REAL.sh && ./DEPLOY-E-TESTE-REAL.sh
+
+═══════════════════════════════════════════════════════════════════════
+
+📋 O QUE ESSE COMANDO FAZ:
+
+1. Vai para o diretório do projeto
+2. Faz deploy da função "server" no Supabase
+3. Aguarda 45 segundos para o servidor iniciar
+4. Testa 3 rotas automaticamente:
+   - /ping (servidor vivo?)
+   - /auth-test (rotas de auth registradas?)
+   - /auth/login (login funciona?)
+5. Mostra SUCESSO ou ERRO com instruções
+
+═══════════════════════════════════════════════════════════════════════
+
+🌐 DEPOIS QUE O SCRIPT MOSTRAR "SUCESSO":
+
+1. Abra a aplicação ImobHunter no navegador
+
+2. Pressione F12 (abre Console do navegador)
+
+3. Execute no Console:
+   localStorage.clear()
+
+4. Execute no Console:
+   location.reload()
+
+5. Tente fazer LOGIN ou CADASTRO novamente
+
+═══════════════════════════════════════════════════════════════════════
+
+📱 VERIFICAR SE FUNCIONOU (OPCIONAL):
+
+Abra o arquivo "index.html" no navegador (duplo clique)
+Ele vai testar automaticamente e mostrar se está tudo OK
+
+═══════════════════════════════════════════════════════════════════════
+
+❌ SE DER ERRO:
+
+1. Se aparecer "supabase: command not found":
+   brew install supabase/tap/supabase
+   supabase login
+   ./DEPLOY-E-TESTE-REAL.sh
+
+2. Se aparecer "Project not linked":
+   supabase link --project-ref evdyqlrssgsktctjruuq
+   ./DEPLOY-E-TESTE-REAL.sh
+
+3. Se der outro erro:
+   Me envie a saída completa do script
+
+═══════════════════════════════════════════════════════════════════════
+
+📞 AINDA COM PROBLEMA?
+
+Execute e me envie o resultado:
+
+./DEPLOY-E-TESTE-REAL.sh 2>&1 | tee deploy-log.txt
+
+Depois compartilhe o arquivo "deploy-log.txt" comigo
+
+═══════════════════════════════════════════════════════════════════════
