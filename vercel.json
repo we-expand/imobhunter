@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/sdr/:path*",
+      "destination": "https://we-expand-sdr.vercel.app/:path*"
+    }
+  ]
+}
